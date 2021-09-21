@@ -24,6 +24,12 @@ import { CourseDetailsComponent } from './components/course-consumption/course-d
 import { CsModule } from '@project-sunbird/client-services';
 import { CsLibInitializerService } from '../../service/CsLibInitializer/cs-lib-initializer.service';
 import { MatIconModule } from '@angular/material/icon';
+import { CourseEligibilityComponent } from './components/course-consumption/course-eligibility/course-eligibility.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {  ReactiveFormsModule } from "@angular/forms";
+import {MatInputModule} from '@angular/material/input';
 
 export const csUserServiceFactory = (csLibInitializerService: CsLibInitializerService) => {
   if (!CsModule.instance.isInitialised) {
@@ -44,11 +50,17 @@ export const csUserServiceFactory = (csLibInitializerService: CsLibInitializerSe
     TelemetryModule,
     PlayerHelperModule,
     CommonConsumptionModule,MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatInputModule
 
   ],
   providers: [{ provide: 'CS_USER_SERVICE', useFactory: csUserServiceFactory, deps: [CsLibInitializerService] }],
   declarations: [CoursePlayerComponent, CourseConsumptionHeaderComponent, AssessmentPlayerComponent,
     CourseConsumptionPageComponent, BatchDetailsComponent, CurriculumCardComponent, UnEnrollBatchComponent,
-    AssessmentPlayerComponent, CourseCompletionComponent, CourseDetailsComponent]
+    AssessmentPlayerComponent, CourseCompletionComponent, CourseDetailsComponent,CourseEligibilityComponent],
+  entryComponents:[CourseEligibilityComponent]
 })
 export class CourseConsumptionModule { }

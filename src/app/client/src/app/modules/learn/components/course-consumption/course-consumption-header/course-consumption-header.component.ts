@@ -1,7 +1,10 @@
 
 import { combineLatest as observableCombineLatest, Subject } from 'rxjs';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+
 import { takeUntil } from 'rxjs/operators';
-import { Component, OnInit, Input, AfterViewInit, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, ChangeDetectorRef, OnDestroy, TemplateRef } from '@angular/core';
 import { CourseConsumptionService, CourseProgressService } from './../../../services';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as _ from 'lodash-es';
@@ -15,12 +18,15 @@ import * as dayjs from 'dayjs';
 import { GroupsService } from '../../../../groups/services/groups/groups.service';
 import { NavigationHelperService } from '@sunbird/shared';
 import { CsGroupAddableBloc } from '@project-sunbird/client-services/blocs';
+import { CourseEligibilityComponent } from '../course-eligibility/course-eligibility.component';
+import { MatDialogRef, MAT_DIALOG_DATA,MatDialog, MatDialogConfig} from '@angular/material/dialog';
 
-@Component({
+
+@Component( {
   selector: 'app-course-consumption-header',
   templateUrl: './course-consumption-header.component.html',
-  styleUrls: ['./course-consumption-header.component.scss']
-})
+  styleUrls: [ './course-consumption-header.component.scss' ]
+} )
 export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   sharelinkModal: boolean;
@@ -29,8 +35,8 @@ export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, 
    */
   flaggedCourse = false;
   /**
-	 * telemetryShareData
-	*/
+   * telemetryShareData
+  */
   telemetryShareData: Array<ITelemetryShare>;
   shareLink: string;
   /**
@@ -45,7 +51,7 @@ export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, 
   @Input() showAddGroup = false;
   enrolledCourse = false;
   batchId: any;
-  dashboardPermission = ['COURSE_MENTOR', 'CONTENT_CREATOR'];
+  dashboardPermission = [ 'COURSE_MENTOR', 'CONTENT_CREATOR' ];
   courseId: string;
   lastPlayedContentId: string;
   showResumeCourse = true;
@@ -65,30 +71,34 @@ export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, 
   tocId;
   isGroupAdmin: boolean;
 
-  constructor(private activatedRoute: ActivatedRoute, public courseConsumptionService: CourseConsumptionService,
+  animal: string;
+  name: string;
+
+  constructor ( private activatedRoute: ActivatedRoute, public courseConsumptionService: CourseConsumptionService,
     public resourceService: ResourceService, private router: Router, public permissionService: PermissionService,
     public toasterService: ToasterService, public copyContentService: CopyContentService, private changeDetectorRef: ChangeDetectorRef,
     private courseProgressService: CourseProgressService, public contentUtilsServiceService: ContentUtilsServiceService,
     public externalUrlPreviewService: ExternalUrlPreviewService, public coursesService: CoursesService, private userService: UserService,
     private telemetryService: TelemetryService, private groupService: GroupsService,
-    private navigationHelperService: NavigationHelperService, public generaliseLabelService: GeneraliseLabelService) { }
+    private navigationHelperService: NavigationHelperService, public generaliseLabelService: GeneraliseLabelService,public dialog: MatDialog
+  ) { }
 
-  showJoinModal(event) {
-    this.courseConsumptionService.showJoinCourseModal.emit(event);
+  showJoinModal ( event ) {
+    // this.courseConsumptionService.showJoinCourseModal.emit(event);
   }
 
-  ngOnInit() {
-    this.forumId = _.get(this.courseHierarchy, 'forumId') || _.get(this.courseHierarchy, 'metaData.forumId');
-    if (!this.courseConsumptionService.getCoursePagePreviousUrl) {
+  ngOnInit () {
+    this.forumId = _.get( this.courseHierarchy, 'forumId' ) || _.get( this.courseHierarchy, 'metaData.forumId' );
+    if ( !this.courseConsumptionService.getCoursePagePreviousUrl ) {
       this.courseConsumptionService.setCoursePagePreviousUrl();
     }
-    this.isTrackable = this.courseConsumptionService.isTrackableCollection(this.courseHierarchy);
-    this.viewDashboard = this.courseConsumptionService.canViewDashboard(this.courseHierarchy);
+    this.isTrackable = this.courseConsumptionService.isTrackableCollection( this.courseHierarchy );
+    this.viewDashboard = this.courseConsumptionService.canViewDashboard( this.courseHierarchy );
 
-    observableCombineLatest(this.activatedRoute.firstChild.params, this.activatedRoute.firstChild.queryParams,
-      (params, queryParams) => {
+    observableCombineLatest( this.activatedRoute.firstChild.params, this.activatedRoute.firstChild.queryParams,
+      ( params, queryParams ) => {
         return { ...params, ...queryParams };
-      }).subscribe((params) => {
+      } ).subscribe( ( params ) => {
         this.courseId = params.courseId;
         this.batchId = params.batchId;
         this.courseStatus = params.courseStatus;
@@ -99,182 +109,194 @@ export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, 
           type: 'Course',
           ver: this.courseHierarchy.pkgVersion ? this.courseHierarchy.pkgVersion.toString() : '1.0',
         };
-        if (this.courseHierarchy.status === 'Flagged') {
+        if ( this.courseHierarchy.status === 'Flagged' ) {
           this.flaggedCourse = true;
         }
-        if (this.batchId) {
+        if ( this.batchId ) {
           this.enrolledCourse = true;
-          this.telemetryCdata = [{ id: this.batchId, type: 'CourseBatch' }];
+          this.telemetryCdata = [ { id: this.batchId, type: 'CourseBatch' } ];
         }
-      });
-    this.interval = setInterval(() => {
-      if (document.getElementById('closebutton')) {
+      } );
+    this.interval = setInterval( () => {
+      if ( document.getElementById( 'closebutton' ) ) {
         this.showResumeCourse = true;
       } else {
         this.showResumeCourse = false;
       }
-    }, 500);
-    this.courseConsumptionService.userCreatedAnyBatch.subscribe((visibility: boolean) => {
+    }, 500 );
+    this.courseConsumptionService.userCreatedAnyBatch.subscribe( ( visibility: boolean ) => {
       this.viewDashboard = this.viewDashboard && visibility;
-    });
+    } );
+
+
   }
-  ngAfterViewInit() {
+  ngAfterViewInit () {
     this.courseProgressService.courseProgressData.pipe(
-      takeUntil(this.unsubscribe))
-      .subscribe((courseProgressData) => {
-        if (this.batchId) {
+      takeUntil( this.unsubscribe ) )
+      .subscribe( ( courseProgressData ) => {
+        if ( this.batchId ) {
           this.enrolledCourse = true;
-          this.progress = courseProgressData.progress ? Math.floor(courseProgressData.progress) : 0;
+          this.progress = courseProgressData.progress ? Math.floor( courseProgressData.progress ) : 0;
           this.lastPlayedContentId = courseProgressData.lastPlayedContentId;
-          if (!this.flaggedCourse && this.onPageLoadResume &&
-            !this.contentId && this.enrolledBatchInfo.status > 0 && this.lastPlayedContentId) {
+          if ( !this.flaggedCourse && this.onPageLoadResume &&
+            !this.contentId && this.enrolledBatchInfo.status > 0 && this.lastPlayedContentId ) {
             this.onPageLoadResume = false;
             this.showResumeCourse = false;
             this.resumeCourse();
-          } else if (!this.flaggedCourse && this.contentId && this.enrolledBatchInfo.status > 0 && this.lastPlayedContentId) {
+          } else if ( !this.flaggedCourse && this.contentId && this.enrolledBatchInfo.status > 0 && this.lastPlayedContentId ) {
             this.onPageLoadResume = false;
             this.showResumeCourse = false;
           } else {
             this.onPageLoadResume = false;
           }
         }
-      });
+      } );
 
-      this.courseConsumptionService.updateContentConsumedStatus.emit(
-        {
-          courseId: this.courseId,
-          batchId: this.batchId,
-          courseHierarchy: this.courseHierarchy
-         });
+    this.courseConsumptionService.updateContentConsumedStatus.emit(
+      {
+        courseId: this.courseId,
+        batchId: this.batchId,
+        courseHierarchy: this.courseHierarchy
+      } );
   }
 
-  showDashboard() {
-    this.router.navigate(['learn/course', this.courseId, 'dashboard', 'batches']);
+  showDashboard () {
+    this.router.navigate( [ 'learn/course', this.courseId, 'dashboard', 'batches' ] );
   }
 
   // To close the dashboard
-  closeDashboard() {
-    this.router.navigate(['learn/course', this.courseId]);
+  closeDashboard () {
+    this.router.navigate( [ 'learn/course', this.courseId ] );
   }
 
-  resumeCourse(showExtUrlMsg?: boolean) {
+  resumeCourse ( showExtUrlMsg?: boolean ) {
     this.courseConsumptionService.launchPlayer.emit();
-    this.coursesService.setExtContentMsg(showExtUrlMsg);
+    this.coursesService.setExtContentMsg( showExtUrlMsg );
   }
 
-  flagCourse() {
-    this.router.navigate(['flag'], { relativeTo: this.activatedRoute.firstChild });
+  flagCourse () {
+    this.router.navigate( [ 'flag' ], { relativeTo: this.activatedRoute.firstChild } );
   }
   /**
    * This method calls the copy API service
    * @param {contentData} ContentData Content data which will be copied
    */
-  copyContent(contentData: ContentData) {
+  copyContent ( contentData: ContentData ) {
     this.showCopyLoader = true;
-    this.copyContentService.copyContent(contentData).pipe(
-      takeUntil(this.unsubscribe))
+    this.copyContentService.copyContent( contentData ).pipe(
+      takeUntil( this.unsubscribe ) )
       .subscribe(
-        (response) => {
-          this.toasterService.success(this.resourceService.messages.smsg.m0042);
+        ( response ) => {
+          this.toasterService.success( this.resourceService.messages.smsg.m0042 );
           this.showCopyLoader = false;
         },
-        (err) => {
+        ( err ) => {
           this.showCopyLoader = false;
-          this.toasterService.error(this.resourceService.messages.emsg.m0008);
-        });
+          this.toasterService.error( this.resourceService.messages.emsg.m0008 );
+        } );
   }
-  onShareLink() {
-    this.shareLink = this.contentUtilsServiceService.getCoursePublicShareUrl(this.courseId);
-    this.setTelemetryShareData(this.courseHierarchy);
+  onShareLink () {
+    this.shareLink = this.contentUtilsServiceService.getCoursePublicShareUrl( this.courseId );
+    this.setTelemetryShareData( this.courseHierarchy );
   }
-  setTelemetryShareData(param) {
-    this.telemetryShareData = [{
+  setTelemetryShareData ( param ) {
+    this.telemetryShareData = [ {
       id: param.identifier,
       type: param.contentType,
       ver: param.pkgVersion ? param.pkgVersion.toString() : '1.0'
-    }];
+    } ];
   }
-  ngOnDestroy() {
-    clearInterval(this.interval);
+  ngOnDestroy () {
+    clearInterval( this.interval );
     this.unsubscribe.next();
     this.unsubscribe.complete();
   }
-  getBatchStatus() {
-   /* istanbul ignore else */
-   if (_.get(this.enrolledBatchInfo, 'endDate')) {
-    this.batchEndDate = dayjs(this.enrolledBatchInfo.endDate).format('YYYY-MM-DD');
-   }
-   return (_.get(this.enrolledBatchInfo, 'status') === 2 && this.progress <= 100);
+  getBatchStatus () {
+    /* istanbul ignore else */
+    if ( _.get( this.enrolledBatchInfo, 'endDate' ) ) {
+      this.batchEndDate = dayjs( this.enrolledBatchInfo.endDate ).format( 'YYYY-MM-DD' );
+    }
+    return ( _.get( this.enrolledBatchInfo, 'status' ) === 2 && this.progress <= 100 );
   }
 
-  closeSharePopup(id) {
+  closeSharePopup ( id ) {
     this.sharelinkModal = false;
     const interactData = {
       context: {
-        env: _.get(this.activatedRoute.snapshot.data.telemetry, 'env') || 'content',
+        env: _.get( this.activatedRoute.snapshot.data.telemetry, 'env' ) || 'content',
         cdata: this.telemetryCdata
       },
       edata: {
         id: id,
         type: 'click',
-        pageid: _.get(this.activatedRoute.snapshot.data.telemetry, 'pageid') || 'course-details',
+        pageid: _.get( this.activatedRoute.snapshot.data.telemetry, 'pageid' ) || 'course-details',
       },
       object: {
-        id: _.get(this.courseHierarchy, 'identifier'),
-        type: _.get(this.courseHierarchy, 'contentType') || 'Course',
-        ver: `${_.get(this.courseHierarchy, 'pkgVersion')}` || `1.0`,
-        rollup: {l1: this.courseId}
+        id: _.get( this.courseHierarchy, 'identifier' ),
+        type: _.get( this.courseHierarchy, 'contentType' ) || 'Course',
+        ver: `${ _.get( this.courseHierarchy, 'pkgVersion' ) }` || `1.0`,
+        rollup: { l1: this.courseId }
       }
     };
-    this.telemetryService.interact(interactData);
+    this.telemetryService.interact( interactData );
   }
 
-  logTelemetry(id, content?: {}) {
-    if (this.batchId) {
-      this.telemetryCdata = [{ id: this.batchId, type: 'courseBatch' }];
+  logTelemetry ( id, content?: {} ) {
+    if ( this.batchId ) {
+      this.telemetryCdata = [ { id: this.batchId, type: 'courseBatch' } ];
     }
-    const objectRollUp = this.courseConsumptionService.getContentRollUp(this.courseHierarchy, _.get(content, 'identifier'));
+    const objectRollUp = this.courseConsumptionService.getContentRollUp( this.courseHierarchy, _.get( content, 'identifier' ) );
     const interactData = {
       context: {
-        env: _.get(this.activatedRoute.snapshot.data.telemetry, 'env') || 'Course',
+        env: _.get( this.activatedRoute.snapshot.data.telemetry, 'env' ) || 'Course',
         cdata: this.telemetryCdata || []
       },
       edata: {
         id: id,
         type: 'click',
-        pageid: _.get(this.activatedRoute.snapshot.data.telemetry, 'pageid') || 'course-consumption',
+        pageid: _.get( this.activatedRoute.snapshot.data.telemetry, 'pageid' ) || 'course-consumption',
       },
       object: {
-        id: content ? _.get(content, 'identifier') : this.activatedRoute.snapshot.params.courseId,
-        type: content ? _.get(content, 'contentType') : 'Course',
-        ver: content ? `${_.get(content, 'pkgVersion')}` : `1.0`,
-        rollup: this.courseConsumptionService.getRollUp(objectRollUp) || {}
+        id: content ? _.get( content, 'identifier' ) : this.activatedRoute.snapshot.params.courseId,
+        type: content ? _.get( content, 'contentType' ) : 'Course',
+        ver: content ? `${ _.get( content, 'pkgVersion' ) }` : `1.0`,
+        rollup: this.courseConsumptionService.getRollUp( objectRollUp ) || {}
       }
     };
-    this.telemetryService.interact(interactData);
+    this.telemetryService.interact( interactData );
   }
 
-  openDiscussionForum() {
-    this.router.navigate(['/discussions'], {queryParams: {forumId: this.forumId} });
+  openDiscussionForum () {
+    this.router.navigate( [ '/discussions' ], { queryParams: { forumId: this.forumId } } );
   }
-  async goBack() {
+  async goBack () {
     const previousPageUrl: any = this.courseConsumptionService.getCoursePagePreviousUrl;
     this.courseConsumptionService.coursePagePreviousUrl = '';
-    if (this.tocId) {
+    if ( this.tocId ) {
       const navigateUrl = this.userService.loggedIn ? '/resources/play/collection' : '/play/collection';
-      this.router.navigate([navigateUrl, this.tocId], { queryParams: { textbook: this.tocId } });
-    } else if (!previousPageUrl) {
-      this.router.navigate(['/learn']);
+      this.router.navigate( [ navigateUrl, this.tocId ], { queryParams: { textbook: this.tocId } } );
+    } else if ( !previousPageUrl ) {
+      this.router.navigate( [ '/learn' ] );
       return;
     }
-    if (previousPageUrl.url.indexOf('/my-groups/') >= 0) {
+    if ( previousPageUrl.url.indexOf( '/my-groups/' ) >= 0 ) {
       this.navigationHelperService.goBack();
     } else {
-      if (previousPageUrl.queryParams) {
-        this.router.navigate([previousPageUrl.url], {queryParams: previousPageUrl.queryParams});
+      if ( previousPageUrl.queryParams ) {
+        this.router.navigate( [ previousPageUrl.url ], { queryParams: previousPageUrl.queryParams } );
       } else {
-        this.router.navigate([previousPageUrl.url]);
+        this.router.navigate( [ previousPageUrl.url ] );
       }
     }
   }
+  openDialog() {
+
+        const dialogConfig = new MatDialogConfig();
+
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+
+        this.dialog.open(CourseEligibilityComponent, dialogConfig);
+    }
+
 }

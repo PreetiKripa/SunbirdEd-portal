@@ -1,0 +1,34 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+>
+  <label for="first-name">10th Percentage: </label>
+  <input
+    id="hsc-Percentage"
+    type="text"
+    formControlName="hscPercentage"
+  >
+  <br>
+  <label for="first-name">12th Percentage: </label>
+  <input
+    id="ssc-Percentage"
+    type="text"
+    formControlName="sscPercentage"
+  >
+</form>
+<p>Complete the form to enable button.</p>
+<button
+  type="submit"
+  [disabled]="!form.valid"
+>Submit</button>
+
+<!-- <mat-dialog-actions>
+  <button
+    class="mat-raised-button"
+    (click)="close()"
+  >Close</button>
+  <button
+    class="mat-raised-button mat-primary"
+    (click)="save()"
+  >Save</button>
+</mat-dialog-actions> -->
