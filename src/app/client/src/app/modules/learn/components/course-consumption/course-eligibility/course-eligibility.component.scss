@@ -9,9 +9,9 @@
     box-sizing: border-box;
     overflow: auto;
     outline: 0;
-    width: 470px;
+    width: 470px !important;
 
-    height: 350px;
+    height: 350px !important;
 
     min-height: inherit;
     max-height: inherit;
@@ -24,6 +24,13 @@ width: 80%;
 }
 .buttonAllign{
   display:flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+  height: 35px;
 
+}
+.input-length{
+  width:100%;
+}
+.submitAllign{
+  margin-left: 20px !important;
 }

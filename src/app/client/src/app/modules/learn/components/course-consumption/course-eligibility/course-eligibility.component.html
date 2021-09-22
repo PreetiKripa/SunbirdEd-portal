@@ -1,36 +1,48 @@
-<div class="headAllign">Check Eligibity</div>
-<form [formGroup]="form">
-  <label for="first-name">10th Percentage </label>
+<div class="container">
+  <div class="headAllign"><strong>Check Eligibity</strong></div>
   <br>
-  <input
-    id="hsc-Percentage"
-    type="text"
-    formControlName="hscPercentage"
-  >
+  <form [formGroup]="form">
+    <label for="first-name">10th Percentage </label>
+    <br>
+    <input
+      id="hsc-Percentage"
+      type="text"
+      formControlName="hscPercentage"
+      class="input-length"
+    >
+    <br><br>
+    <label for="first-name">12th Percentage </label>
+    <br>
+    <input
+      id="ssc-Percentage"
+      type="text"
+      formControlName="sscPercentage"
+      class="input-length"
+    >
+    <br><br>
+    <label for="first-name">Graduation Percentage </label>
+    <br>
+    <input
+      id="graduation-Percentage"
+      type="text"
+      formControlName="graduationPercentage"
+      class="input-length"
+    >
+  </form>
   <br>
-  <label for="first-name">12th Percentage </label>
-  <br>
-  <input
-    id="ssc-Percentage"
-    type="text"
-    formControlName="sscPercentage"
-  >
-  <br>
-  <label for="first-name">Graduation Percentage </label>
-  <br>
-  <input
-    id="graduation-Percentage"
-    type="text"
-    formControlName="graduationPercentage"
-  >
-</form>
-<br>
-<!-- <button
+  <!-- <button
   type="submit"
   [disabled]="!form.valid"
 >Submit</button> -->
 
-<div class="buttonAllign">
-  <button class="mat-raised-button mat-warn">Cancel</button>
-  <button class="mat-raised-button mat-primary">Submit</button>
+  <div class="buttonAllign">
+    <button
+      class="mat-raised-button mat-warn"
+      (click)="close()"
+    >Cancel</button>
+    <button
+      class="mat-raised-button mat-primary submitAllign"
+      (click)="save()"
+    >Submit</button>
+  </div>
 </div>

@@ -24,17 +24,17 @@ export class CourseEligibilityComponent implements OnInit {
   ngOnInit() {
 
   }
-  onSubmit(){
-    console.warn(this.form.value);
-  }
+  // onSubmit(){
+  //   console.warn(this.form.value);
+  // }
 
-  //  save() {
-  //       this.dialogRef.close(this.form.value);
-  //   }
+   save() {
+        this.dialogRef.close(this.form.value);
+    }
 
-  //   close() {
-  //       this.dialogRef.close();
-  //   }
+    close() {
+        this.dialogRef.close();
+    }
 form = new FormGroup({
          hscPercentage: new FormControl(''),
          sscPercentage: new FormControl(''),

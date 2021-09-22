@@ -295,6 +295,8 @@ export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, 
 
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
+        dialogConfig.width="400px";
+
 
         this.dialog.open(CourseEligibilityComponent, dialogConfig);
     }
