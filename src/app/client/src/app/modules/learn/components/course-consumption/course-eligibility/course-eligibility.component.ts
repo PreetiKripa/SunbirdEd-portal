@@ -37,7 +37,8 @@ export class CourseEligibilityComponent implements OnInit {
   //   }
 form = new FormGroup({
          hscPercentage: new FormControl(''),
-         sscPercentage: new FormControl('')
+         sscPercentage: new FormControl(''),
+         graduationPercentage: new FormControl('')
 
 
 });
