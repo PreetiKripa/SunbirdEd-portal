@@ -2,7 +2,16 @@
   <div class="headAllign"><strong>Check Eligibity</strong></div>
   <br>
   <form [formGroup]="form">
-    <label for="first-name">10th Percentage </label>
+    <label for="learner-name">learner Name</label>
+    <br>
+    <input
+      id="learner-name"
+      type="text"
+      formControlName="learnerName"
+      class="input-length"
+    >
+    <br><br>
+    <label for="hsc-Percentage">10th Percentage </label>
     <br>
     <input
       id="hsc-Percentage"
@@ -11,7 +20,7 @@
       class="input-length"
     >
     <br><br>
-    <label for="first-name">12th Percentage </label>
+    <label for="ssc-Percentage">12th Percentage </label>
     <br>
     <input
       id="ssc-Percentage"
@@ -20,7 +29,7 @@
       class="input-length"
     >
     <br><br>
-    <label for="first-name">Graduation Percentage </label>
+    <label for="graduation-Percentage">Graduation Percentage </label>
     <br>
     <input
       id="graduation-Percentage"
@@ -28,6 +37,34 @@
       formControlName="graduationPercentage"
       class="input-length"
     >
+    <br><br>
+
+    <label for="organisation">Organisation </label>
+    <br>
+    <input
+      id="organisation"
+      type="text"
+      formControlName="organisation"
+      class="input-length"
+    >
+    <br><br>
+    <label for="entryExamCleared">Entry Exam Cleared </label>
+    <br>
+    <input
+      id="entryExamCleared"
+      type="radio"
+      formControlName="entryExamCleared"
+      class="input-length"
+      value="true"
+    >Yes
+    <input
+      id="entryExamCleared"
+      type="radio"
+      formControlName="entryExamCleared"
+      class="input-length"
+      value="false"
+    >No
+
   </form>
   <br>
   <!-- <button
@@ -41,6 +78,7 @@
       (click)="close()"
     >Cancel</button>
     <button
+      type="submit"
       class="mat-raised-button mat-primary submitAllign"
       (click)="save()"
     >Submit</button>
