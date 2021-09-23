@@ -18,14 +18,16 @@
 }
 
 .headAllign{
-width: 80%;
+    width: 80%;
     margin: auto;
     text-align: center;
+    font-size: 24px;
+
 }
 .buttonAllign{
   display:flex;
   justify-content: flex-end;
-  height: 35px;
+  height: 40px;
 
 }
 .input-length{
@@ -56,4 +58,14 @@ color:green !important
 }
 .allignNoButton{
   padding-left:23px;
+}
+
+.labelSize{
+
+    font-size: 18px;
+    font-weight: bold;
+}
+.btn{
+  width: 126px;
+  border-radius: 25px;
 }

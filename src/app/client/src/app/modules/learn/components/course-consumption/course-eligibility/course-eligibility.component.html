@@ -1,8 +1,13 @@
 <div class="container">
-  <div class="headAllign"><strong>Check Eligibity</strong></div>
+  <div class="headAllign">
+    <h1>Check Eligibity</h1>
+  </div>
   <br>
   <form [formGroup]="form">
-    <label for="learner-name">Learner Name</label>
+    <label
+      for="learner-name"
+      class="labelSize"
+    >Learner Name</label>
     <br>
     <input
       id="learner-name"
@@ -11,7 +16,10 @@
       class="input-length"
     >
     <br><br>
-    <label for="hsc-Percentage">10th Percentage </label>
+    <label
+      for="hsc-Percentage"
+      class="labelSize"
+    >10th Percentage </label>
     <br>
     <input
       id="hsc-Percentage"
@@ -20,7 +28,10 @@
       class="input-length"
     >
     <br><br>
-    <label for="ssc-Percentage">12th Percentage </label>
+    <label
+      for="ssc-Percentage"
+      class="labelSize"
+    >12th Percentage </label>
     <br>
     <input
       id="ssc-Percentage"
@@ -29,7 +40,10 @@
       class="input-length"
     >
     <br><br>
-    <label for="graduation-Percentage">Graduation Percentage </label>
+    <label
+      for="graduation-Percentage"
+      class="labelSize"
+    >Graduation Percentage </label>
     <br>
     <input
       id="graduation-Percentage"
@@ -39,7 +53,10 @@
     >
     <br><br>
 
-    <label for="organisation">Organisation </label>
+    <label
+      for="organisation"
+      class="labelSize"
+    >Organisation </label>
     <br>
     <input
       id="organisation"
@@ -48,7 +65,10 @@
       class="input-length"
     >
     <br><br>
-    <label for="entryExamCleared">Entry Exam Cleared </label>
+    <label
+      for="entryExamCleared"
+      class="labelSize"
+    >Entry Exam Cleared </label>
     <br>
     <div class="allignRadioButton">
       <div>
@@ -72,11 +92,15 @@
     </div>
 
     <div
-      *ngIf="responseData.hscPercentage>75 && responseData.sscPercentage>75 && responseData.graduationPercentage>70 && responseData.entryExamCleared" class="successMessage">
+      *ngIf="responseData.hscPercentage>75 && responseData.sscPercentage>75 && responseData.graduationPercentage>70 && responseData.entryExamCleared"
+      class="successMessage"
+    >
       Congratulations!! You are eligible to enroll.
     </div>
     <div
-      *ngIf="responseData.hscPercentage<75 || responseData.sscPercentage<75 || responseData.graduationPercentage<70 || !responseData.entryExamCleared" class="errorMessage">
+      *ngIf="responseData.hscPercentage<75 || responseData.sscPercentage<75 || responseData.graduationPercentage<70 || !responseData.entryExamCleared"
+      class="errorMessage"
+    >
       Oops!! You are not eligible to enroll.
     </div>
 
@@ -89,12 +113,12 @@
 
   <div class="buttonAllign">
     <button
-      class="mat-raised-button mat-warn"
+      class="mat-raised-button mat-warn btn"
       (click)="close()"
     >Cancel</button>
     <button
       type="submit"
-      class="mat-raised-button mat-primary submitAllign"
+      class="mat-raised-button mat-primary submitAllign btn"
       (click)="save()"
     >Submit</button>
   </div>
