@@ -30,7 +30,30 @@ width: 80%;
 }
 .input-length{
   width:100%;
+  padding: 10px;
 }
 .submitAllign{
   margin-left: 20px !important;
+}
+::ng-deep {
+.blue-snackbar {
+  background-color: #2196F3 !important;
+}
+.red-snackbar {
+  background-color: red !important;
+}
+.errorMessage{
+color:red !important;
+}
+.successMessage{
+color:green !important
+}
+}
+
+.allignRadioButton{
+  display:flex;
+
+}
+.allignNoButton{
+  padding-left:23px;
 }

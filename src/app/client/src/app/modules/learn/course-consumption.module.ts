@@ -31,6 +31,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {  ReactiveFormsModule } from "@angular/forms";
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 export const csUserServiceFactory = (csLibInitializerService: CsLibInitializerService) => {
@@ -57,7 +58,8 @@ export const csUserServiceFactory = (csLibInitializerService: CsLibInitializerSe
     MatButtonModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule
 
   ],
   providers: [{ provide: 'CS_USER_SERVICE', useFactory: csUserServiceFactory, deps: [CsLibInitializerService] }],
@@ -65,5 +67,6 @@ export const csUserServiceFactory = (csLibInitializerService: CsLibInitializerSe
     CourseConsumptionPageComponent, BatchDetailsComponent, CurriculumCardComponent, UnEnrollBatchComponent,
     AssessmentPlayerComponent, CourseCompletionComponent, CourseDetailsComponent,CourseEligibilityComponent],
   entryComponents:[CourseEligibilityComponent]
+
 })
 export class CourseConsumptionModule { }

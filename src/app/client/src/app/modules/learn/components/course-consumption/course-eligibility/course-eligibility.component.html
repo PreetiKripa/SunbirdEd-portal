@@ -2,7 +2,7 @@
   <div class="headAllign"><strong>Check Eligibity</strong></div>
   <br>
   <form [formGroup]="form">
-    <label for="learner-name">learner Name</label>
+    <label for="learner-name">Learner Name</label>
     <br>
     <input
       id="learner-name"
@@ -50,20 +50,35 @@
     <br><br>
     <label for="entryExamCleared">Entry Exam Cleared </label>
     <br>
-    <input
-      id="entryExamCleared"
-      type="radio"
-      formControlName="entryExamCleared"
-      class="input-length"
-      value="true"
-    >Yes
-    <input
-      id="entryExamCleared"
-      type="radio"
-      formControlName="entryExamCleared"
-      class="input-length"
-      value="false"
-    >No
+    <div class="allignRadioButton">
+      <div>
+        <input
+          id="entryExamCleared"
+          type="radio"
+          formControlName="entryExamCleared"
+          class="input-length"
+          value="true"
+        ><label>Yes</label>
+      </div>
+      <div class="allignNoButton">
+        <input
+          id="entryExamCleared"
+          type="radio"
+          formControlName="entryExamCleared"
+          class="input-length"
+          value="false"
+        ><label>NO</label>
+      </div>
+    </div>
+
+    <div
+      *ngIf="responseData.hscPercentage>75 && responseData.sscPercentage>75 && responseData.graduationPercentage>70 && responseData.entryExamCleared" class="successMessage">
+      Congratulations!! You are eligible to enroll.
+    </div>
+    <div
+      *ngIf="responseData.hscPercentage<75 || responseData.sscPercentage<75 || responseData.graduationPercentage<70 || !responseData.entryExamCleared" class="errorMessage">
+      Oops!! You are not eligible to enroll.
+    </div>
 
   </form>
   <br>

@@ -84,7 +84,7 @@ export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, 
   ) { }
 
   showJoinModal ( event ) {
-    // this.courseConsumptionService.showJoinCourseModal.emit(event);
+    this.courseConsumptionService.showJoinCourseModal.emit(event);
   }
 
   ngOnInit () {
@@ -295,7 +295,7 @@ export class CourseConsumptionHeaderComponent implements OnInit, AfterViewInit, 
 
         dialogConfig.disableClose = true;
         dialogConfig.autoFocus = true;
-        dialogConfig.width="400px";
+        dialogConfig.width="800px";
 
 
         this.dialog.open(CourseEligibilityComponent, dialogConfig);
