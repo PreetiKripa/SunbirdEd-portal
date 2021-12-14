@@ -1,6 +1,6 @@
   <form [formGroup]="filtersFormGroup"  class="sb-form"
   [ngClass]="{'hide': hideElements}" *ngIf="showFilters && !hideElements">
- 
+
   <!-- <sui-accordion class="styled fluid" [closeOthers]="false">
     <sui-accordion-panel [isOpen]="true"> -->
       <!-- <div title>
@@ -20,18 +20,18 @@
                 (selectionChanged)="autoCompleteChange($event,filter.reference)"
                 display-key="name"
                ></app-material-auto-complete>
-               
+
               </div>
               <div *ngIf="filter.controlType === 'select'">
-              
+
                   <input matInput type="text" [(ngModel)]="filterQuery" (keyup.enter)="chooseOption()" [placeholder]="filter.displayName" aria-label="Number" matInput [formControlName]="filter.reference" [matAutocomplete]="auto2">
                   <mat-autocomplete #auto2="matAutocomplete" class = "test-class">
                   <mat-option *ngFor="let option of getFilters(filter.options)" [value]="option">
                   {{ option }}
                   </mat-option>
                   </mat-autocomplete>
-              
-              
+
+
               </div>
               <div *ngIf="filter.controlType === 'date'">
                 <input appTelemetryInteract [telemetryInteractObject]="telemetryInteractObject"
@@ -54,13 +54,13 @@
 
 <div class="sb-filter-label pt-16 pb-8" *ngIf="selectedFilters && filterType=='report-filter'">
   <div *ngFor="let key of loadash.keys(selectedFilters)" class="d-inline-flex flex-w-wrap pr-10">
-    
+
     <span *ngIf="checkFilterReferance(key)">
-      <span 
+      <span
       class="sb-label-name mb-4" >{{key}}:</span>
         <span  class="date-range-label"
         *ngIf="selectedFilters[key]?.length>0">
-            {{selectedFilters[key][0]}} - {{selectedFilters[key][selectedFilters[key].length-1]}} 
+            {{selectedFilters[key][0]}} - {{selectedFilters[key][selectedFilters[key].length-1]}}
         </span>
     </span>
     <span *ngIf="!checkFilterReferance(key)">

@@ -130,7 +130,7 @@
     .sb-btn {
       border-radius: calculateRem(3px) 0 0 calculateRem(3px);
     }
-    .icon {  
+    .icon {
       &.search {
         right: calculateRem(8px);
       }
@@ -147,11 +147,11 @@
   }
 }
 
-input:-internal-autofill-previewed, 
-input:-internal-autofill-selected, 
-textarea:-internal-autofill-previewed, 
-textarea:-internal-autofill-selected, 
-select:-internal-autofill-previewed, 
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected,
+textarea:-internal-autofill-previewed,
+textarea:-internal-autofill-selected,
+select:-internal-autofill-previewed,
 select:-internal-autofill-selected {
   background-color: var(--sb-search-auto-select) !important;
 }
@@ -237,7 +237,7 @@ select:-internal-autofill-selected {
     color: #545454;
     html[dir="rtl"] & {
       padding: calculateRem(4px) calculateRem(40px) calculateRem(4px) calculateRem(88px);
-    } 
+    }
     &:hover {
       box-shadow: var(--sbt-box-shadow-6px);
     }
@@ -400,9 +400,21 @@ select:-internal-autofill-selected {
     }
   }
 }
+
+::placeholder, .sbt-search-bar-panel {
+	color: white !important;
+}
+
+.sbt-search-bar-panel:focus, input[type="text"]:focus{
+	background: black;
+	border: 1px solid white;
+	font-size: 16px;
+	font-style: italic;
+}
+
 .sbt-search-bar-panel{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width:100%;
 }
 .sbt-search-bar-panel:focus-within{
@@ -444,4 +456,13 @@ select:-internal-autofill-selected {
   .sbt-search-box.large:focus-within{
     max-width: 100% !important;
   }
+}
+
+input, select, textarea{
+	color: white !important;
+}
+
+::selection {
+  color: white !important;
+  background: #005DCC !important;
 }

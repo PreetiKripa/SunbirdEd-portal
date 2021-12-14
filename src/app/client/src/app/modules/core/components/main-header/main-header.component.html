@@ -105,7 +105,7 @@
             [ngClass]="{'ml-auto': searchBox.center, 'ml-0': !searchBox.center, 'small': searchBox.smallBox, 'large': searchBox.largeBox, 'medium': searchBox.mediumBox}">
             <div class="input-div relative">
               <!-- <i class="search icon"></i> -->
-              <img src="assets/images/search-icon.svg" alt="Search Icon" class="search icon">
+              <img src="assets/images/search-icon.svg" alt="Search Icon" class="search icon" >
               <input type="text" id="keyword" name="filter_search" class="sb-search-input"
                 title="{{resourceService?.frmelmnts?.prmpt?.search}}" [(ngModel)]='queryParam.key'
                 placeholder="{{resourceService?.frmelmnts?.prmpt?.searchOrQr}}" tabindex="0"
@@ -172,17 +172,20 @@
 <div *ngIf="layoutConfiguration"
   [ngClass]="{'player-fullscreen-header': isFullScreenView}">
   <div class="sbt-header sbt-fluid-header-bg">
-    <div class="sbt-container">
+    <div class="">
+		<!-- <div class="sbt-container"> -->
       <!--Header section-->
-      <header>
+      <header style="background: black;" *ngIf="userService?.loggedIn">
         <div class="sbt-header-bar sb-g">
-          <div class="sb-g-col-xs-12 sb-g-col-md-3 sb-g-col-lg-3 sb-g-col-xxxl-4 sbt-header-logo">
+          <div class="sb-g-col-xs-12 sb-g-col-md-1 sb-g-col-lg-1 sb-g-col-xxxl-1 sbt-header-logo">
             <div class="d-flex flex-ai-center flex-jc-space-between w-100">
               <!--Logo-->
               <a class="logo sbt-logo" tabindex="0" title="{{tenantInfo.titleName}}" role="link"
                 aria-label="Navigate to Homepage">
-                <img (click)="navigateToHome()" class="cursor-pointer" alt={{tenantInfo.titleName}}
-                  src="{{tenantInfo.logo}}">
+                <!-- <img (click)="navigateToHome()" class="cursor-pointer" alt={{tenantInfo.titleName}}
+                  src="http://localhost:3000/assets/images/NIIT_logo.png"> -->
+								<img (click)="navigateToHome()" class="cursor-pointer" alt={{tenantInfo.titleName}}
+								src="{{tenantInfo.logo}}">
               </a>
               <!--/Logo-->
               <div class="d-flex flex-ai-center sb-responsive-header">
@@ -211,10 +214,9 @@
             </div>
 
           </div>
-          <div
-            class="sb-g-col-xs-12 sb-g-col-md-4 sb-g-col-lg-5 sb-g-col-xxxl-8 sbt-header-tool-bar flex-jc-center relative">
+          <div class="sb-g-col-xs-12 sb-g-col-md-4 sb-g-col-lg-5 sb-g-col-xxxl-8 sbt-header-tool-bar flex-jc-center relative">
             <div class="sbt-search-bar-panel">
-              <app-search [layoutConfiguration]="layoutConfiguration" class="sbt-search-box large">
+              <app-search [layoutConfiguration]="layoutConfiguration" class="sbt-search-box">
               </app-search>
             </div>
             <div class="search-box-dropdown-list">
@@ -260,7 +262,7 @@
               </div>
             </div>
           </div>
-          <div class="sb-g-col-xs-12 sb-g-col-md-5 sb-g-col-lg-4 sb-g-col-xxxl-4 sbt-header-tool-bar">
+          <div class="sb-g-col-xs-12 sb-g-col-md-6 sb-g-col-lg-6 sb-g-col-xxxl-6 sbt-header-tool-bar" style="margin-right: 30px;">
             <div class="d-flex flex-ai-center sbt-dropdown-profile-area">
               <!-- student dropdown -->
               <sui-select *ngIf="ShowStudentDropdown" class="selection sbt-dropdown sbt-dropdown--md sbt-purple mr-16"
@@ -270,31 +272,47 @@
               </sui-select>
               <!-- language dropdown -->
               <app-language-dropdown [layoutConfiguration]="layoutConfiguration" [languageRange]='languages'
-                *ngIf="languages && showLanguageDropdown()">
+                *ngIf="false">
+                <!-- *ngIf="languages && showLanguageDropdown()"> -->
               </app-language-dropdown>
               <!-- Notification dropdown -->
               <a class="profile-avtar p-0 ml-16">
                 <app-in-app-notification *ngIf="userService?.loggedIn" [layoutConfiguration]="layoutConfiguration">
                 </app-in-app-notification>
+								<span style="color: white;">Notifications</span>
+              </a>
+              <a class="profile-avtar p-0 ml-16">
+								<i class="fa fa-bookmark-o" aria-hidden="true" style="zoom: 2; color: white; padding-left: 10px;"></i>
+								<span style="display: inline-block; padding-left: 5px; color: white;">Bookmarks</span>
+              </a>
+              <a class="profile-avtar p-0 ml-16" style="margin-right: 10px;">
+								<i class="fa fa-question" aria-hidden="true" style="zoom: 2; color: white; border: 2px solid white; border-radius: 50%; padding: 1px 5px;"></i>
+								<span style="display: inline-block; padding-left: 5px; color: white;">Help</span>
               </a>
               <!--Avtar Dropdown-->
-              <a class="profile-avtar p-0 ml-16">
-                <div class="ui dropdown right top pointing">
-                  <div class="sbt-guest-profile" aria-haspopup="true" aria-controls="overlaySidebarID"
-                    aria-label="Guest User" tabindex="0" name="Guest" *ngIf='!userProfile && !guestUser'
-                    (click)="toggleSideMenu(true)"><img src="./assets/images/profile-icon.svg" alt="Guest User"
-                      width="48"></div>
-                  <ngx-avatar aria-haspopup="true" aria-controls="overlaySidebarID" aria-label="Guest User"
-                    *ngIf='!userProfile && guestUser' tabindex="0" (click)="toggleSideMenu(true)"
-                    [style]="avtarDesktopStyle" [size]="38" initialsSize="1"
-                    name="{{guestUser?.formatedName || 'Guest'}}">
-                  </ngx-avatar>
-                  <ngx-avatar aria-haspopup="true" aria-controls="overlaySidebarID" aria-label="User Profile"
-                    *ngIf='userProfile' tabindex="0" (click)="toggleSideMenu(true)" [style]="SbtavtarDesktopStyle"
-                    [size]="48" initialsSize="1" name="{{userProfile?.firstName}}">
-                  </ngx-avatar>
-                </div>
-              </a>
+							<div class="d-flex">
+								<span style="color: white; text-align: end; font-weight: bold;">
+									Welcome Khushboo <br />
+									Student
+								</span>
+								<a class="profile-avtar p-0 ml-16">
+									<div class="ui dropdown right top pointing">
+										<div class="sbt-guest-profile" aria-haspopup="true" aria-controls="overlaySidebarID"
+											aria-label="Guest User" tabindex="0" name="Guest" *ngIf='!userProfile && !guestUser'
+											(click)="toggleSideMenu(true)"><img src="./assets/images/profile-icon.svg" alt="Guest User"
+												width="48"></div>
+										<ngx-avatar aria-haspopup="true" aria-controls="overlaySidebarID" aria-label="Guest User"
+											*ngIf='!userProfile && guestUser' tabindex="0" (click)="toggleSideMenu(true)"
+											[style]="avtarDesktopStyle" [size]="38" initialsSize="1"
+											name="{{guestUser?.formatedName || 'Guest'}}">
+										</ngx-avatar>
+										<ngx-avatar aria-haspopup="true" aria-controls="overlaySidebarID" aria-label="User Profile"
+											*ngIf='userProfile' tabindex="0" (click)="toggleSideMenu(true)" [style]="SbtavtarDesktopStyle"
+											[size]="48" initialsSize="1" name="{{userProfile?.firstName}}">
+										</ngx-avatar>
+									</div>
+								</a>
+							</div>
               <!--/Avtar Dropdown-->
             </div>
           </div>
@@ -410,7 +428,7 @@
               </svg></i>
             {{resourceService.frmelmnts?.lnk?.dashboard}}
           </li>
-        
+
           <li class="list-item" *ngIf='!isDesktopApp && permissionService.permissionAvailable' appPermission
           [permission]='programDashboardRole' (click)="toggleSideMenu(false)" routerLink="program">
           <i class="icon-svg icon-svg--sm icon-dashboard mr-8"><svg class="icon icon-svg--primary">
@@ -445,7 +463,7 @@
             <i class="icon-svg icon-svg--sm icon-manage mr-8"><svg class="icon icon-svg--primary">
                 <use xlink:href="./assets/images/sprite.svg#Admin-icon"></use>
               </svg></i>
-            {{resourceService.frmelmnts?.lbl?.communicationConsole}} 
+            {{resourceService.frmelmnts?.lbl?.communicationConsole}}
           </li>
 
           <li class="list-item" role="link" appOnlineOnly (click)="toggleSideMenu(false)"

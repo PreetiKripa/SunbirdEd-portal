@@ -2,9 +2,9 @@
 @import "mixins/mixins";
 
 .notification-bell{
-  box-shadow: var(--sbt-box-shadow-6px);
+  // box-shadow: var(--sbt-box-shadow-6px);
   border-radius: 50%;
-  background-color: var(--sb-notification-bg);
+  // background-color: var(--sb-notification-bg);
   width: calculateRem(40px);
   height: calculateRem(40px);
   .icon-svg{
@@ -27,5 +27,5 @@
   text-align: center;
 }
 .notification-disable{
-  opacity: 0.5;
+  // opacity: 0.5;
 }
