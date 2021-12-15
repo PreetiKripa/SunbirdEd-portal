@@ -53,6 +53,7 @@ export class OnboardingUserSelectionComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.setPopupInteractEdata();
     this.initialize().subscribe();
+      // this.hidePopup();
   }
 
   private initialize() {
@@ -65,6 +66,7 @@ export class OnboardingUserSelectionComponent implements OnInit, OnDestroy {
 
   private prepareGuestList(fields = []) {
     return _.reduce(_.sortBy(fields, ['index']), (result, field) => {
+      // tslint:disable-next-line:max-line-length
       const { name = null, visibility = true, image = 'guest-img3.svg', searchFilter = [], code = null, label = null, translations = null } = field || {};
       if (visibility) {
         result.push({
@@ -137,6 +139,7 @@ export class OnboardingUserSelectionComponent implements OnInit, OnDestroy {
         }
       };
     });
+    this.hidePopup();
   }
 
   selectUserType(selectedGuest: IGuest) {
@@ -163,7 +166,7 @@ export class OnboardingUserSelectionComponent implements OnInit, OnDestroy {
       'context': {
         'env': 'onboarding',
         'cdata': [
-          { id: code, type: 'UserType' },     
+          { id: code, type: 'UserType' }
         ]
       },
       'object': {
@@ -177,7 +180,7 @@ export class OnboardingUserSelectionComponent implements OnInit, OnDestroy {
           'profile_type'
         ],
         'type': 'set-usertype',
-        'prevstate':'set-usertype',
+        'prevstate': 'set-usertype',
       }
     };
     this.telemetryService.audit(auditEventInput);
@@ -189,6 +192,12 @@ export class OnboardingUserSelectionComponent implements OnInit, OnDestroy {
       type: 'click',
       pageid: _.get(this.activatedRoute, 'snapshot.data.telemetry.pageid') || this.router.url.split('/')[1]
     };
+  }
+  hidePopup() {
+   const root: HTMLElement = document.getElementsByTagName( 'html' )[0];
+    root.classList.add('hideProfilePopup');
+    // tslint:disable-next-line:quotemark
+    console.log("classname", root);
   }
 
   ngOnDestroy() {

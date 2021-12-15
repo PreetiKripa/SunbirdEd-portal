@@ -1,8 +1,8 @@
 <div [ngClass]="!layoutConfiguration ? 'footer-fix' : 'new-footer'">
   <app-desktop-app-update *appDesktopOnly></app-desktop-app-update>
   <div [ngClass]="{'loggedInUser': userService.loggedIn, 'guestUser': !userService.loggedIn}">
-    <div *ngIf="!isDesktopApp"
-      class="sbt-container d-flex flex-ai-center sb-bg-color-black py-8 flex-w-wrap sbt-sticky-topbar sb-fontresizecontainer"
+    <div *ngIf="!isDesktopApp && userService.loggedIn"
+      class="sbt-container d-flex flex-ai-center sb-bg-color-black py-8 flex-w-wrap sbt-sticky-topbar sb-fontresizecontainer hide-toopnavbar"
       [ngClass]="{'hide': isFullScreenView}">
       <div class="ui container">
         <div class="brand-header-tail">
@@ -94,9 +94,10 @@
       <app-year-of-birth [dialogProps]="data"></app-year-of-birth>
     </ng-template>
   </app-modal-wrapper>
-    
-    <app-header *ngIf="!hideHeaderNFooter" [layoutConfiguration]="layoutConfiguration" [routerEvents]="routeData$"
+   
+    <app-header  *ngIf="!hideHeaderNFooter" [layoutConfiguration]="layoutConfiguration" [routerEvents]="routeData$"
       [ngClass]="{'header-block': isFullScreenView}"></app-header>
+ 
     <app-install-app (viewInBrowser)="viewInBrowser($event)" *ngIf="showAppPopUp && userService.loggedIn">
     </app-install-app>
     <!--<app-breadcrumbs *ngIf="userService.loggedIn"></app-breadcrumbs>-->
@@ -109,8 +110,7 @@
 <div *ngIf="isBotEnabled === 'true'" [ngClass]="{'hideBot': isBotdisplayforRoute(), 'hideBot': isFullScreenView}">
   <lib-chat-window [inputValues]="botObject"></lib-chat-window>
 </div>
-<app-footer [layoutConfiguration]="layoutConfiguration" *ngIf="!hideHeaderNFooter"></app-footer>
-
+<app-footer [layoutConfiguration]="layoutConfiguration" *ngIf="!hideHeaderNFooter && userService.loggedIn"></app-footer>
 <app-modal-wrapper *ngIf="sessionExpiryInterceptor.sessionExpired" [config]="{disableClose: true, size: 'small'}">
   <ng-template sbModalContent let-data>
     <div class="sb-mat__modal">

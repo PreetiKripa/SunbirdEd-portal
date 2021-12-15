@@ -51,6 +51,10 @@ export class ProfileFrameworkPopupComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.dialogRef = this.dialogProps && this.dialogProps.id && this.matDialog.getDialogById(this.dialogProps.id);
+    const root: HTMLElement = document.getElementsByTagName( 'html' )[0];
+    root.classList.add('hideBoardPopup');
+    // tslint:disable-next-line:quotemark
+    console.log("classname", root);
     this.popupControlService.changePopupStatus(false);
     this.selectedOption = _.pickBy(_.cloneDeep(this.formInput), 'length') || {}; // clone selected field inputs from parent
     if (this.isGuestUser) {
@@ -58,6 +62,8 @@ export class ProfileFrameworkPopupComponent implements OnInit, OnDestroy {
         this.guestUserHashTagId = data.hashTagId;
       });
       this.allowedFields = ['board', 'medium', 'gradeLevel'];
+      // tslint:disable-next-line:quotemark
+      console.log("dialog", this.dialogRef);
     }
     // Replacing CBSE with CBSE/NCERT
     if (_.toLower(_.get(this.selectedOption, 'board')) === 'cbse') {
@@ -80,7 +86,7 @@ export class ProfileFrameworkPopupComponent implements OnInit, OnDestroy {
         this.toasterService.warning(this.resourceService.messages.emsg.m0012);
         this.navigateToLibrary();
       });
-
+  
     this.setInteractEventData();
   }
   private getFormOptionsForCustodianOrgForGuestUser() {

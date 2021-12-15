@@ -212,8 +212,8 @@
 
           </div>
           <div
-            class="sb-g-col-xs-12 sb-g-col-md-4 sb-g-col-lg-5 sb-g-col-xxxl-8 sbt-header-tool-bar flex-jc-center relative">
-            <div class="sbt-search-bar-panel">
+            class="sb-g-col-xs-12 sb-g-col-md-4 sb-g-col-lg-5 sb-g-col-xxxl-8 sbt-header-tool-bar flex-jc-center relative hide-header" >
+            <div class="sbt-search-bar-panel" *ngIf="userService?.loggedIn">
               <app-search [layoutConfiguration]="layoutConfiguration" class="sbt-search-box large">
               </app-search>
             </div>
@@ -269,9 +269,11 @@
                 </sui-select-option>
               </sui-select>
               <!-- language dropdown -->
+            
               <app-language-dropdown [layoutConfiguration]="layoutConfiguration" [languageRange]='languages'
-                *ngIf="languages && showLanguageDropdown()">
+                *ngIf="userService?.loggedIn && languages && showLanguageDropdown() ">
               </app-language-dropdown>
+           
               <!-- Notification dropdown -->
               <a class="profile-avtar p-0 ml-16">
                 <app-in-app-notification *ngIf="userService?.loggedIn" [layoutConfiguration]="layoutConfiguration">
@@ -300,12 +302,12 @@
           </div>
         </div>
       </header>
-      <nav title="menu-bar">
+      <nav title="menu-bar" *ngIf="userService?.loggedIn">
         <div class="sbt-header-menu-bar">
           <!--  sb-g <div class="sb-g-col-xs-12 sb-g-col-md-3 sb-g-col-lg-3 sb-g-col-xxxl-4"></div>
           <div class="sb-g-col-xs-12 sb-g-col-md-9 sb-g-col-lg-9  sb-g-col-xxxl-12 sbt-header-menu-extension"></div> -->
           <div class="sbt-header-menu">
-            <app-main-menu [layoutConfiguration]="layoutConfiguration" [showBackButton]="showBackButton">
+            <app-main-menu [layoutConfiguration]="layoutConfiguration" [showBackButton]="showBackButton" >
             </app-main-menu>
           </div>
           <div class="ui container d-flex flex-ai-center" *ngIf="showBackButton">
@@ -324,8 +326,8 @@
         </div>
       </nav>
     </div>
+    </div>
   </div>
-</div>
 
 <div class="overlay-sidebar" *ngIf="showSideMenu">
   <div class="overlay-sidebar__menu" tabindex="0" role="dialog" id="overlaySidebarID" aria-labelledby="dialog1_label" aria-modal="true" aria-label="open sidebar navigation">

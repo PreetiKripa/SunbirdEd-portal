@@ -1524,3 +1524,11 @@ html[layout='joy'] {
 //   text-align: left;
 //   white-space: normal;
 // }
+
+ .hideProfilePopup .cdk-overlay-container, .hideProfilePopup{
+   display: none;
+ }
+
+ .hideBoardPopup  .cdk-overlay-container{
+  display: none;
+ }
