@@ -139,7 +139,7 @@ export class OnboardingUserSelectionComponent implements OnInit, OnDestroy {
         }
       };
     });
-    this.hidePopup();
+    // this.hidePopup();
   }
 
   selectUserType(selectedGuest: IGuest) {
@@ -193,12 +193,12 @@ export class OnboardingUserSelectionComponent implements OnInit, OnDestroy {
       pageid: _.get(this.activatedRoute, 'snapshot.data.telemetry.pageid') || this.router.url.split('/')[1]
     };
   }
-  hidePopup() {
-   const root: HTMLElement = document.getElementsByTagName( 'html' )[0];
-    root.classList.add('hideProfilePopup');
-    // tslint:disable-next-line:quotemark
-    console.log("classname", root);
-  }
+  // hidePopup() {
+  //  const root: HTMLElement = document.getElementsByTagName( 'html' )[0];
+  //   root.classList.add('hideProfilePopup');
+  //   // tslint:disable-next-line:quotemark
+  //   console.log("classname", root);
+  // }
 
   ngOnDestroy() {
     this.unsubscribe$.next();

@@ -297,7 +297,7 @@
 									Welcome Khushboo <br />
 									Student
 								</span>
-								<a class="profile-avtar p-0 ml-16">
+								<a class="profile-avtar p-0 ml-16" *ngIf="userService?.loggedIn">
 									<div class="ui dropdown right top pointing">
 										<div class="sbt-guest-profile" aria-haspopup="true" aria-controls="overlaySidebarID"
 											aria-label="Guest User" tabindex="0" name="Guest" *ngIf='!userProfile && !guestUser'

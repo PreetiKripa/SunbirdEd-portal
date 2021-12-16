@@ -52,9 +52,9 @@ export class ProfileFrameworkPopupComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.dialogRef = this.dialogProps && this.dialogProps.id && this.matDialog.getDialogById(this.dialogProps.id);
     const root: HTMLElement = document.getElementsByTagName( 'html' )[0];
-    root.classList.add('hideBoardPopup');
-    // tslint:disable-next-line:quotemark
-    console.log("classname", root);
+    // root.classList.add('hideBoardPopup');
+    // // tslint:disable-next-line:quotemark
+    // console.log("classname", root);
     this.popupControlService.changePopupStatus(false);
     this.selectedOption = _.pickBy(_.cloneDeep(this.formInput), 'length') || {}; // clone selected field inputs from parent
     if (this.isGuestUser) {

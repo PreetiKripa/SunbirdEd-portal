@@ -11,6 +11,7 @@ export class LandingPageComponent implements OnInit {
 
   layoutConfiguration;
   fieldTextType: boolean;
+  hrefPath = '/resources';
 
   @ViewChild('mycarousel', {static : true}) carousel: NgbCarousel;
 
