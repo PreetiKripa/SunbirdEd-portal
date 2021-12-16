@@ -26,27 +26,29 @@
   // padding: 0 0 calculateRem(8px) 0;
   .item {
     background: var(--sb-linkmenu-bg);
-    padding: calculateRem(8px) calculateRem(16px);
-    border-radius: calculateRem(6px);
-    box-shadow: var(--sbt-box-shadow-6px);
-    font-size: calculateRem(12px);
+    // padding: calculateRem(8px) calculateRem(16px);
+		padding: 0.2rem 1rem;
+    // border-radius: calculateRem(6px);
+    // box-shadow: var(--sbt-box-shadow-6px);
+    // font-size: calculateRem(12px);
     font-weight: bold;
     margin-right: calculateRem(12px);
-    height: calculateRem(48px);
+    // height: calculateRem(48px);
     transition: all ease .3s;
     display: flex;
     align-items: center;
     cursor: pointer;
     white-space: nowrap;
-    color: var(--sb-linkmenu-text);
+    color: black;
     @include respond-above(md){
       flex: 0 0 10%;
     }
     &.active,
     &:hover {
-      color: var(--sb-linkmenu-text-hover);
+      border-bottom: 5px solid #E60000;
+      // color: var(--sb-linkmenu-text-hover);
       text-decoration: none;
-      background-color: var(--sb-linkmenu-bg-hover);
+      // background-color: var(--sb-linkmenu-bg-hover);
       .sb-icon {
         background-color: var(--sb-linkmenu-icon-bg-hover);
       }

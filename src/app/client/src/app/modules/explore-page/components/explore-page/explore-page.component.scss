@@ -43,7 +43,7 @@
         font-weight: bold;
         margin-right: calculateRem(32px);
         html[dir="rtl"] & {
-          margin-left: calculateRem(32px); 
+          margin-left: calculateRem(32px);
         }
         @include respond-below(sm){
          margin-right:0px;
@@ -137,4 +137,810 @@
   .section-hr {
     border: calculateRem(0.5px) solid var(--rc-dad9cb);
   }
+}
+
+.main-page {
+  margin: 20px 80px;
+}
+.loginform {
+  text-align: center;
+}
+
+.imagebanner-desktop {
+  display: block;
+}
+
+.imagebanner-tab,
+.imagebanner-mobile {
+  display: none;
+}
+
+.input-icons i {
+  position: absolute;
+  margin-top: 10px;
+  color: black;
+  right: 16px;
+  top: 0px;
+}
+
+.input-icons {
+  width: 100%;
+  margin-bottom: 7px;
+  position: relative;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 8px 16px;
+  display: inline-block;
+  border-radius: 7px;
+  font-style: italic;
+  font-size: 12px;
+  background-color: transparent;
+  color: black;
+  font-weight: 200;
+}
+
+.box {
+  background-color: white;
+  height: 100%;
+  width: 50%;
+  /* left: 20%; */
+  top: 10%;
+}
+
+#grad1 {
+  background: #e60000;
+  border-radius: 25px;
+  padding: 20px;
+  margin: 0px 50px;
+}
+
+#scorebox-mobile {
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+}
+#scorebox-desktop {
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.score-txt {
+  color: #e60000;
+  font-size: 16px;
+  text-align: center;
+}
+
+.points {
+  color: black;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.score-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.main-blackbox {
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  /* height: 140%; */
+  margin-bottom: 2rem;
+}
+
+.black-box {
+  width: 100%;
+  background-color: black;
+  border-radius: 25px;
+  height: 250px;
+}
+
+.black-box:last-child {
+  margin-left: 10px;
+}
+#chartContainer {
+  height: 300px;
+  max-width: 920px;
+  margin: 0px auto;
+}
+.red {
+  color: red;
+}
+
+.calendar-txt {
+  font-size: 20px;
+}
+.progress-txt {
+  color: white;
+}
+
+.yellow {
+  color: rgba(253, 196, 0);
+}
+
+.light-blue {
+  color: rgba(0, 224, 209);
+}
+
+.circular {
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+
+.circular .inner {
+  position: absolute;
+  border-radius: 50%;
+  border: 5px solid greenyellow;
+  top: 17%;
+  left: 50%;
+  height: 83px;
+  width: 80px;
+  background: white;
+  border-radius: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.progress {
+  height: 0px !important;
+}
+
+.starimage1 {
+  display: flex;
+  flex-direction: row;
+}
+.starimage1 img {
+  padding-left: 15rem;
+}
+.starimage2 img {
+  padding-right: 15rem;
+}
+.starimage2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.calendar-box {
+  background: black;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 16px 10px 42px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  list-style: none;
+}
+
+.calendar-box:last-child {
+  margin-bottom: 0;
+}
+
+.calendar-txt {
+  /*font-weight: bold;*/
+  margin-left: 25px;
+  color: #fff;
+}
+
+.calendar-bellicon .calendar-box li a span {
+  margin-left: 0px;
+}
+
+.calendar-bellicon .calendar-box li a {
+  text-decoration: none;
+}
+
+.calendar-box .fa-calendar:before {
+  font-size: 20px;
+}
+
+.calendar-box .fa-bell-o:before {
+  font-size: 20px;
+}
+.calendar-box .fa-angle-double-up:before {
+  font-size: 40px;
+}
+.course-learning .calendar-box img,
+.learningtools-resources .calendar-box img,
+.calendar-bellicon .calendar-box img {
+  width: 30px;
+}
+
+.calendar-bellicon div:nth-child(2) img {
+  width: 35px;
+  margin-top: 4px;
+}
+
+.learningtools-resources div:nth-child(1) img {
+  width: 40px;
+}
+
+.learningtools-resources div:nth-child(1) span {
+  margin-left: 25px;
+}
+.dose-bata {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.dosebanner-image img {
+  margin: 0 auto;
+  display: flex;
+  border-radius: 3%;
+}
+.dosebanner-image {
+  // background-image: url("../assets/dose_grey_bg.png");
+  background-size: 100%;
+}
+.bata_superhero {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.bata_superhero img {
+  width: 100%;
+}
+.superhero-image {
+  position: relative;
+}
+.superhero_text_mobile {
+  position: absolute;
+  bottom: 0;
+  font-size: 14px;
+  color: white;
+  width: 130px;
+  padding: 10px;
+}
+.superhero_white-box {
+  position: absolute;
+  top: 38%;
+  background-color: white;
+  color: red;
+  padding: 6px 20px 6px 6px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.superhero_white-box.mobile {
+  display: none;
+}
+#myCarousel {
+  display: none;
+}
+.canvasjs-chart-credit {
+  display: none !important;
+}
+.course-learning-txt {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+.course-learning-txt .learning-txt {
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+}
+
+.course-learning-txt span {
+  font-size: 20px;
+}
+
+.canvas-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 365px;
+  position: relative;
+}
+
+/* p {
+    position: relative;
+    left: 194px;
+    margin-top: 64px;
+  } */
+
+.canvas-con-inner {
+  height: 100%;
+}
+
+.canvas-con-inner,
+.legend-con {
+  display: inline-block;
+}
+
+.legend-con {
+  font-family: Roboto;
+  display: inline-block;
+}
+.legend-con ul {
+  list-style: none;
+}
+.legend-con li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.legend-con li span {
+  display: inline-block;
+}
+.legend-con li span.chart-legend {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.learningtools-resources div:nth-child(1) img {
+  margin-left: -10px;
+  color: #fff;
+}
+
+.course-learning-txt li a,
+.learningtools-resources li a {
+  text-decoration: none;
+}
+
+.calendar-box span {
+  cursor: pointer;
+}
+
+.slick-list {
+  margin: 0px 50px !important;
+}
+
+.bata_superhero .slick-slider .slick-arrow.slick-prev {
+  left: 60px;
+}
+
+.bata_superhero .slick-slider .slick-arrow.slick-next {
+  right: 60px;
+}
+
+.slick-dots li button::before {
+  font-size: 25px !important;
+  color: #e60000 !important;
+}
+
+.slick-dots li.slick-active button::before {
+  color: #e60000;
+}
+
+.bata_superhero .slick-slider .slick-arrow {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 12px;
+  background: #000 none repeat scroll 0% 0%;
+}
+.slickMobile {
+  display: none !important;
+}
+
+/*new*/
+
+#grad1 .main-blackbox div.black-box:nth-child(1) {
+  margin-right: 10px;
+}
+
+.bata_superhero .slick-slider .slick-prev::before,
+.bata_superhero .slick-slider .slick-next::before {
+  line-height: 1.5 !important;
+  font-size: 18px !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .loginform {
+    display: none !important;
+  }
+  .calendar-bellicon {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .calendar-bellicon div:nth-child(1),
+  .course-learning div:nth-child(1),
+  .learningtools-resources div:nth-child(1) {
+    margin-left: 0px;
+    margin-right: 10px;
+  }
+
+  .calendar-box {
+    width: 50%;
+    margin-left: 10px;
+  }
+  .course-learning {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+  }
+  .learningtools-resources {
+    display: flex;
+    flex-direction: row;
+  }
+  .bata_superhero img {
+    height: 250px;
+    border-radius: 25px;
+    background: #e60000;
+  }
+  .superhero_white-box {
+    padding: 6px 10rem;
+  }
+  .superhero_white-box .super_hero_text {
+    text-align: center;
+  }
+  .superhero_text_desktop {
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
+    color: white;
+    padding: 10px;
+    width: 30%;
+    padding-left: 2rem;
+  }
+  .superhero_text_mobile {
+    display: none;
+  }
+  .dose-bata {
+    display: none;
+  }
+  #scorebox-mobile {
+    display: none;
+  }
+
+  .imagebanner-desktop {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0px 50px;
+  }
+
+  .bata_superhero .superhero-image {
+    margin: 0px 50px;
+  }
+  .imagebanner-desktop img {
+    width: 100%;
+    /*height: 270px;*/
+    /*border-radius: 25px;*/
+  }
+}
+@media screen and (min-width: 1025px) {
+  .main-page {
+    /*margin-top:-20px;*/
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  /* .starimage1{
+          display: none
+      }
+      .starimage2{
+        display: none
+    } */
+  .learningtools-resources {
+    padding-top: 8px;
+  }
+  .superhero_text_desktop {
+    display: none;
+  }
+  #myCarousel {
+    display: none;
+  }
+  #scorebox-desktop {
+    display: none;
+  }
+  .imagebanner-desktop {
+    display: none;
+  }
+}
+
+/* carousel */
+#myCarousel {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.carousel-inner img {
+  width: 100%;
+  height: 300px !important;
+}
+.container {
+  width: 100%;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none !important;
+}
+/*donut css */
+.apexcharts-canvas {
+  margin: 0 auto;
+}
+
+#html {
+  display: none;
+}
+#apexchartsfc3noor2 {
+  font-weight: bold;
+}
+.apexcharts-legend {
+  height: 100px !important;
+  right: 0px !important;
+  top: 35% !important;
+  padding: 0px !important;
+  /* position: unset !important; */
+}
+.apexcharts-legend-text {
+  color: white !important;
+}
+.apexcharts-legend-series {
+  margin-bottom: 10px !important;
+}
+
+.donut {
+  width: 400px;
+  height: 200px;
+  margin: 0px auto;
+}
+
+.superhero-image {
+  background: #e60000;
+  border-radius: 25px;
+}
+
+@media screen and (max-width: 468px) {
+  .slickMobile {
+    display: block !important;
+  }
+  .slickDesktop {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .bata_superhero .slick-prev::before,
+  .bata_superhero .slick-next::before {
+    font-size: 14px !important;
+  }
+  .bata_superhero .slick-slider .slick-arrow.slick-next {
+    right: 0px !important;
+  }
+  .bata_superhero .slick-slider .slick-arrow.slick-prev {
+    left: 0px !important;
+  }
+  .bata_superhero .slick-slider .slick-arrow {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .black-box {
+    width: 50%;
+    height: 247px;
+  }
+  .apexcharts-canvas {
+    width: 100% !important;
+    min-height: 250px !important;
+  }
+  .apexcharts-canvas svg:not(:root),
+  .apexcharts-canvas svg:not(:root) foreignObject {
+    width: 100% !important;
+    height: 250px !important;
+  }
+  #chart1 {
+    /* min-height: 330px !important; */
+  }
+  .calendar-box {
+    padding: 10px 16px;
+  }
+
+  .superhero_white-box.mobile {
+    display: block;
+  }
+  .superhero_white-box.desktop {
+    display: none;
+  }
+
+  .learningtools-resources div:nth-child(1) img {
+    margin-left: -6px;
+  }
+
+  .dose-bata .dosebanner-image img {
+    width: 100%;
+    height: 300px;
+  }
+
+  .bata_superhero img {
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    background: #e60000;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  #grad1 {
+    margin: 0px;
+    border-radius: 15px;
+  }
+  .main-page {
+    margin: 10px;
+  }
+  .donut {
+    width: auto;
+  }
+  .course-learning-txt span {
+    font-size: 18px;
+  }
+  .calendar-box {
+    border-radius: 15px;
+    margin-top: 10px;
+  }
+  .learningtools-resources div:nth-child(1) {
+    margin-top: 3px;
+  }
+  .slick-list {
+    margin: 0px !important;
+  }
+  .bata_superhero .slick-slider .slick-arrow.slick-prev {
+    left: 20px;
+  }
+  .bata_superhero .slick-slider .slick-arrow.slick-next {
+    right: 20px;
+  }
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait) {
+  .apexcharts-legend {
+    top: 20% !important;
+  }
+  .donut {
+    margin-top: 30px;
+  }
+  .apexcharts-text.apexcharts-datalabel-label {
+    font-size: 14px;
+  }
+  .bata_superhero {
+    margin: 0px 10px;
+  }
+}
+@media all and (device-width: 1024px) and (device-height: 768px) and (orientation: landscape) {
+  .loginform {
+    display: block !important;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  #grad1 .main-blackbox div.black-box:nth-child(1) {
+    margin-right: 0px;
+  }
+  .black-box:last-child {
+    margin-left: 6px;
+  }
+  .imagebanner-mobile {
+    display: block;
+  }
+
+  .imagebanner-desktop,
+  .imagebanner-tab {
+    display: none;
+  }
+  .imagebanner-mobile img {
+    width: 100%;
+    margin: 15px 0px;
+  }
+}
+@media only screen and (min-width: 420px) and (max-width: 1024px) {
+  .imagebanner-tab {
+    display: block;
+  }
+  .imagebanner-tab img {
+    width: 100%;
+    padding: 15px;
+  }
+  .imagebanner-desktop,
+  .imagebanner-mobile {
+    display: none;
+  }
+}
+@media only screen and (min-width: 300px) and (max-width: 325px) {
+  .course-learning-txt span {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1100px) {
+  .main-page {
+    margin: 80px 10px;
+  }
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1190px) {
+  .main-page {
+    margin: 20px 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1190px) {
+  #grad1 {
+    margin: 0px 10px;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1350px) {
+  .starimage2 img {
+    padding-right: 10rem;
+  }
+  .starimage1 img {
+    padding-left: 10rem;
+  }
+}
+
+@media only screen and (min-width: 770px) and (max-width: 1072px) {
+  .donut {
+    width: 335px;
+  }
+  .apexcharts-text.apexcharts-datalabel-label {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 770px) and (max-width: 1190px) {
+  .slick-list {
+    margin: 0px 10px !important;
+  }
+  .bata_superhero .slick-slider .slick-arrow.slick-prev {
+    left: 20px;
+  }
+  .bata_superhero .slick-slider .slick-arrow.slick-next {
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .apexcharts-legend {
+    height: auto !important;
+    position: absolute !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: 25px !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .apexcharts-inner {
+    position: relative;
+    transform: inherit;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  @media screen and (max-width: 450px) {
+    .apexcharts-legend {
+      height: 100px !important;
+      top: 110% !important;
+    }
+  }
+}
+
+/*profile*/
+
+.profile_field .fieldVal {
+  overflow-wrap: anywhere;
 }

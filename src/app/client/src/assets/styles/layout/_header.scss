@@ -31,7 +31,7 @@
 .sbt-header-logo {
   min-height: calculateRem(128px);
   position: relative;
-  display: flex;    
+  display: flex;
   align-items: flex-start;
   padding: calculateRem(16px) calculateRem(16px) calculateRem(0px) calculateRem(16px);
   @include respond-above(sm) {
@@ -46,17 +46,18 @@
     }
 }
 .sbt-header-menu-bar {
-  height: 5.5rem;
-      background: none;
-      padding: 0px;
-      display: flex;
-      /* align-items: center; */
-      /* justify-content: center; */
-      background: var(--sbt-header-bg) !important;
-      border-radius: 24px 24px 0 0;
-      padding: 1rem 1rem 1rem 1rem;
-      overflow: hidden;
-      overflow-x: auto;
+  // height: 5.5rem;
+	background: none;
+	padding: 0px;
+	display: flex;
+	/* align-items: center; */
+	/* justify-content: center; */
+	background: var(--sbt-header-bg) !important;
+	background: white !important;
+	border-radius: 24px 24px 0 0;
+	// padding: 1rem 1rem 1rem 1rem;
+	overflow: hidden;
+	overflow-x: auto;
   position: relative;
   @include respond-below(sm) {
   overflow-x: auto;

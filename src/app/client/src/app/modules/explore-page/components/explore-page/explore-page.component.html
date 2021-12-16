@@ -1,11 +1,485 @@
 <app-landing-section [noTitle]="getSelectedTab() === 'home' || getSelectedTab() === 'explore'"
   [textToDisplay]="pageTitleSrc" [svgToDisplay]="svgToDisplay" [layoutConfiguration]="layoutConfiguration">
 </app-landing-section>
+
+<div class="main-page">
+	<div id="grad1">
+		<div id="scorebox-mobile">
+			<img src="http://localhost:3000/assets/images/star.png" />
+			<div class="score-details">
+				<p class="score-txt">YOUR TOTAL SCORE</p>
+				<p class="points">10 Points </p>
+			</div>
+			<img src="http://localhost:3000/assets/images/star.png" />
+		</div>
+		<div id="scorebox-desktop">
+			<div class="starimage1">
+				<img src="http://localhost:3000/assets/images/star.png" /><img
+					src="http://localhost:3000/assets/images/star.png"
+				/>
+			</div>
+			<div class="score-details">
+				<span class="score-txt">YOUR TOTAL SCORE</span
+				><span class="points">10 Points</span>
+			</div>
+			<div class="starimage2">
+				<img src="http://localhost:3000/assets/images/star.png" /><img
+					src="http://localhost:3000/assets/images/star.png"
+				/>
+			</div>
+		</div>
+		<div class="main-blackbox"></div>
+		<div class="calendar-bellicon">
+			<div class="calendar-box">
+				<img src="http://localhost:3000/assets/images/calender_icon.png" />
+				<span class="calendar-txt">
+					<li class="">
+						<a href="#">
+							<span class="calendar-txt">View Your Scheduled Courses Status</span>
+						</a>
+					</li>
+				</span>
+			</div>
+			<div class="calendar-box">
+				<img src="http://localhost:3000/assets/images/view_new-training_s.png" />
+				<span class="calendar-txt">
+					<li class="">
+						<a href="#"><span class="calendar-txt"> View New Trainings</span></a>
+					</li>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="imagebanner-desktop">
+		<a href="#"><img src="http://localhost:3000/assets/images/dailydose_desktop.jpg" width="100%"></a>
+	</div>
+
+	<div id="grad1">
+		<div class="course-learning">
+			<div class="calendar-box">
+				<i class="fas fa-angle-double-up" aria-hidden="true"></i>
+				<div class="course-learning-txt">
+					<li class="">
+						<a href="#">
+							<span class="learning-txt">My Courses Level</span></a
+						>
+					</li>
+					<span>My Learning, Advanced, Career Accelerator </span>
+				</div>
+			</div>
+			<div class="calendar-box">
+				<img src="http://localhost:3000/assets/images/ladder_icon.png" />
+				<div class="course-learning-txt">
+					<li class="">
+						<a href="#/journey"
+							><span class="learning-txt">My Learning Journey</span></a
+						>
+					</li>
+					<span>Career Progression-wise</span>
+				</div>
+			</div>
+		</div>
+		<div class="learningtools-resources">
+			<div class="calendar-box">
+				<img src="http://localhost:3000/assets/images/learning.png" />
+				<li class="">
+					<a href="#"><span class="calendar-txt">Learning Tools</span></a>
+				</li>
+			</div>
+			<div class="calendar-box">
+				<a href="#"
+					><img src="http://localhost:3000/assets/images/lr_icon.png" /><span class="calendar-txt"
+						>Learning Resources</span
+					></a
+				>
+			</div>
+		</div>
+	</div>
+
+	<div class="bata_superhero">
+		<div>
+			<div class="slick-slider slickDesktop slick-initialized" dir="ltr">
+				<button
+					type="button"
+					data-role="none"
+					class="slick-arrow slick-prev"
+					style="display: block"
+				>
+					Previous
+				</button>
+				<div class="slick-list">
+					<div
+						class="slick-track"
+						style="
+							width: 11331px;
+							opacity: 1;
+							transform: translate3d(-1259px, 0px, 0px);
+						"
+					>
+						<div
+							data-index="-1"
+							tabindex="-1"
+							class="slick-slide slick-cloned"
+							aria-hidden="true"
+							style="width: 1259px"
+						>
+							<div>
+								<div
+									class="heroDesktop"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="0"
+							class="slick-slide slick-active slick-current"
+							tabindex="-1"
+							aria-hidden="false"
+							style="outline: none; width: 1259px"
+						>
+							<div>
+								<div
+									class="heroDesktop"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero1.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="1"
+							class="slick-slide"
+							tabindex="-1"
+							aria-hidden="true"
+							style="outline: none; width: 1259px"
+						>
+							<div>
+								<div
+									class="heroDesktop"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero2.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="2"
+							class="slick-slide"
+							tabindex="-1"
+							aria-hidden="true"
+							style="outline: none; width: 1259px"
+						>
+							<div>
+								<div
+									class="heroDesktop"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero3.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="3"
+							class="slick-slide"
+							tabindex="-1"
+							aria-hidden="true"
+							style="outline: none; width: 1259px"
+						>
+							<div>
+								<div
+									class="heroDesktop"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="4"
+							tabindex="-1"
+							class="slick-slide slick-cloned"
+							aria-hidden="true"
+							style="width: 1259px"
+						>
+							<div>
+								<div
+									class="heroDesktop"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero1.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="5"
+							tabindex="-1"
+							class="slick-slide slick-cloned"
+							aria-hidden="true"
+							style="width: 1259px"
+						>
+							<div>
+								<div
+									class="heroDesktop"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero2.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="6"
+							tabindex="-1"
+							class="slick-slide slick-cloned"
+							aria-hidden="true"
+							style="width: 1259px"
+						>
+							<div>
+								<div
+									class="heroDesktop"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero3.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="7"
+							tabindex="-1"
+							class="slick-slide slick-cloned"
+							aria-hidden="true"
+							style="width: 1259px"
+						>
+							<div>
+								<div
+									class="heroDesktop"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button
+					type="button"
+					data-role="none"
+					class="slick-arrow slick-next"
+					style="display: block"
+				>
+					Next
+				</button>
+				<ul class="slick-dots" style="display: block">
+					<li class="slick-active"><button>1</button></li>
+					<li class=""><button>2</button></li>
+					<li class=""><button>3</button></li>
+					<li class=""><button>4</button></li>
+				</ul>
+			</div>
+			<div class="slick-slider slickMobile slick-initialized" dir="ltr">
+				<button
+					type="button"
+					data-role="none"
+					class="slick-arrow slick-prev"
+					style="display: block"
+				>
+					Previous
+				</button>
+				<div class="slick-list">
+					<div
+						class="slick-track"
+						style="opacity: 1; transform: translate3d(0px, 0px, 0px)"
+					>
+						<div
+							data-index="-1"
+							tabindex="-1"
+							class="slick-slide slick-cloned"
+							aria-hidden="true"
+							style="width: 0px"
+						>
+							<div>
+								<div
+									class="heroMobileview"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="0"
+							class="slick-slide slick-active slick-current"
+							tabindex="-1"
+							aria-hidden="false"
+							style="outline: none; width: 0px"
+						>
+							<div>
+								<div
+									class="heroMobileview"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero1.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="1"
+							class="slick-slide"
+							tabindex="-1"
+							aria-hidden="true"
+							style="outline: none; width: 0px"
+						>
+							<div>
+								<div
+									class="heroMobileview"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero2.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="2"
+							class="slick-slide"
+							tabindex="-1"
+							aria-hidden="true"
+							style="outline: none; width: 0px"
+						>
+							<div>
+								<div
+									class="heroMobileview"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero3.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="3"
+							class="slick-slide"
+							tabindex="-1"
+							aria-hidden="true"
+							style="outline: none; width: 0px"
+						>
+							<div>
+								<div
+									class="heroMobileview"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="4"
+							tabindex="-1"
+							class="slick-slide slick-cloned"
+							aria-hidden="true"
+							style="width: 0px"
+						>
+							<div>
+								<div
+									class="heroMobileview"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero1.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="5"
+							tabindex="-1"
+							class="slick-slide slick-cloned"
+							aria-hidden="true"
+							style="width: 0px"
+						>
+							<div>
+								<div
+									class="heroMobileview"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero2.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="6"
+							tabindex="-1"
+							class="slick-slide slick-cloned"
+							aria-hidden="true"
+							style="width: 0px"
+						>
+							<div>
+								<div
+									class="heroMobileview"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero3.jpg" />
+								</div>
+							</div>
+						</div>
+						<div
+							data-index="7"
+							tabindex="-1"
+							class="slick-slide slick-cloned"
+							aria-hidden="true"
+							style="width: 0px"
+						>
+							<div>
+								<div
+									class="heroMobileview"
+									tabindex="-1"
+									style="width: 100%; display: inline-block"
+								>
+									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button
+					type="button"
+					data-role="none"
+					class="slick-arrow slick-next"
+					style="display: block"
+				>
+					Next
+				</button>
+				<ul class="slick-dots" style="display: block">
+					<li class="slick-active"><button>1</button></li>
+					<li class=""><button>2</button></li>
+					<li class=""><button>3</button></li>
+					<li class=""><button>4</button></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div [ngClass]="[layoutConfiguration ? 'sbt-fluid-content-bg':'', (getSelectedTab() === 'home' || getSelectedTab() === 'explore') ? '': '']">
   <div class="sb-g" [ngClass]="layoutConfiguration ? 'sb-g sbt-container sbt-page-content' : 'sb-g'"
     [appTelemetryImpression]="telemetryImpression">
     <!-- Filter for web version -->
-    <!-- `isFilterEnabled` reference from current page data --> 
+    <!-- `isFilterEnabled` reference from current page data -->
     <div *ngIf="!isDesktopApp && isFilterEnabled" [ngClass]="FIRST_PANEL_LAYOUT">
         <app-search-filter [facets$]="facets$" [layoutConfiguration]="layoutConfiguration" [isOpen]='true' *ngIf="initFilter"
         (filterChange)="getFilters($event)" [defaultTab]="defaultTab" [pageData]="getCurrentPageData()" [pageId]="isUserLoggedIn() ? 'resource-page' : 'explore-page'" [defaultFilters]="defaultFilters">
@@ -105,7 +579,7 @@
                       <div *ngIf="banner?.ui?.text !== ''" class="explore-text">{{banner?.ui?.text}}</div>
                     </div> -->
                     <img [src]="banner?.ui?.background" class="w-100 banner-image" alt="{{banner?.ui?.text}}" title="{{banner?.ui?.text}}" role="link" tabindex="0" (click)="navigateToSpecificLocation(banner); handleBannerClick(banner)">
-                    
+
                   </div>
                 </ngx-slick>
               </div>
@@ -120,14 +594,14 @@
                   [icon]="utilService.getSectionPillIcon(section?.section?.theme?.icons, pillData?.value)" [value]="pillData"
                   [theme]="pillData?.theme"></sb-pill-item>
               </sb-pills-grid>
-              <hr *ngIf="section?.section?.isEnabled && section?.data?.length" class="section-hr my-32" /> 
+              <hr *ngIf="section?.section?.isEnabled && section?.data?.length" class="section-hr my-32" />
             </div>
 
             <div *ngIf="showTargetedCategory && targetedCategory.length">
-              <sb-pills-grid 
+              <sb-pills-grid
               [title]="getSectionCategoryTitle('frmelmnts.lbl.targetCategory')"
               [minDisplayCount]="4"
-              [pillSize]="'medium'" [platform]="'portal'" 
+              [pillSize]="'medium'" [platform]="'portal'"
               [pillBorder]="'semi_round'" [pillsMultiRow]="'auto_responsive'" [pillTextElipsis]="'two_line'" (select)="handleTargetedpillSelected($event)">
               <sb-pill-item *ngFor="let pillData of targetedCategory" [name]="pillData?.name | titlecase"
                 [icon]="pillData?.icon?.web" [value]="pillData"
@@ -150,7 +624,7 @@
                 [showExploreContentButton]="noResultMessage?.showExploreContentButton"
                 [telemetryInteractEdataObject]="exploreMoreButtonEdata"></app-no-result-found>
             </div>
-            
+
           </div>
           <!-- Template for displaying page sections -->
 
@@ -161,8 +635,8 @@
                 (viewMoreClick)="viewAll(section)" (cardClick)="playContent($event, section.name)">
               </sb-library-cards-grid>
               <div class="sb-desktop-library-card relative9">
-                <sb-library-cards-grid *ngIf="isDesktopApp" [layoutConfig]="layoutConfiguration" [type]="'infinite_card_grid_with_hover'" 
-                [title]="section?.name" [contentList]="section.contents | sortBy:'name':'asc'" [maxCardCount]="3" 
+                <sb-library-cards-grid *ngIf="isDesktopApp" [layoutConfig]="layoutConfiguration" [type]="'infinite_card_grid_with_hover'"
+                [title]="section?.name" [contentList]="section.contents | sortBy:'name':'asc'" [maxCardCount]="3"
                 (hoverActionClick)="hoverActionClicked($event)" (viewMoreClick)="viewAll(section)">
                 </sb-library-cards-grid>
               </div>
