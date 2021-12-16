@@ -198,8 +198,8 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
         this.isDesktopApp = this.utilService.isDesktopApp;
         this.setUserPreferences();
         this.subscription$=this.activatedRoute.queryParams.subscribe(queryParams => {
-        this.selectedTab=queryParams.selectedTab; 
-        this.showTargetedCategory=false;   
+        this.selectedTab=queryParams.selectedTab;
+        this.showTargetedCategory=false;
         this.getFormConfigs();
         });
         this.initConfiguration();
@@ -436,7 +436,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                         .pipe(
                             map((response) => {
                                 const { subject: selectedSubjects = [] } = (this.selectedFilters || {}) as { subject: [] };
-                                this._facets$.next(request.facets ? 
+                                this._facets$.next(request.facets ?
                                     this.utilService.processCourseFacetData(_.get(response, 'result'), _.get(request, 'facets')) : {});
                                 this.searchResponse = get(response, 'result.content');
                                 const filteredContents = omit(groupBy(get(response, 'result.content'), content => {
@@ -578,7 +578,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                     }
                     let currentUserType=this.userType.toLowerCase();
                     if (data && data[currentBoard] &&
-                        data[currentBoard][currentUserType]) {    
+                        data[currentBoard][currentUserType]) {
                         this.showTargetedCategory = true
                         this.targetedCategory = data[currentBoard][currentUserType];
                         this.targetedCategorytheme = {
@@ -1079,12 +1079,12 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
         let pillData = event.data[0].value;
         if(this.isUserLoggedIn()) {
             if(pillData.name === 'observation'){
-                this.router.navigate(['observation']);      
-            } 
+                this.router.navigate(['observation']);
+            }
         }
         else{
             window.location.href ='/resources';
-        }  
+        }
     }
 
 

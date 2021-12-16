@@ -2,20 +2,20 @@
   [textToDisplay]="pageTitleSrc" [svgToDisplay]="svgToDisplay" [layoutConfiguration]="layoutConfiguration">
 </app-landing-section>
 
-<div class="main-page">
+<div class="main-page"  *ngIf="router.url.split('&').pop() === 'selectedTab=home'" >
 	<div id="grad1">
 		<div id="scorebox-mobile">
-			<img src="http://localhost:3000/assets/images/star.png" />
+			<img src="/assets/images/star.png" />
 			<div class="score-details">
 				<p class="score-txt">YOUR TOTAL SCORE</p>
 				<p class="points">10 Points </p>
 			</div>
-			<img src="http://localhost:3000/assets/images/star.png" />
+			<img src="/assets/images/star.png" />
 		</div>
 		<div id="scorebox-desktop">
 			<div class="starimage1">
-				<img src="http://localhost:3000/assets/images/star.png" /><img
-					src="http://localhost:3000/assets/images/star.png"
+				<img src="/assets/images/star.png" /><img
+					src="/assets/images/star.png"
 				/>
 			</div>
 			<div class="score-details">
@@ -23,15 +23,15 @@
 				><span class="points">10 Points</span>
 			</div>
 			<div class="starimage2">
-				<img src="http://localhost:3000/assets/images/star.png" /><img
-					src="http://localhost:3000/assets/images/star.png"
+				<img src="/assets/images/star.png" /><img
+					src="/assets/images/star.png"
 				/>
 			</div>
 		</div>
 		<div class="main-blackbox"></div>
 		<div class="calendar-bellicon">
 			<div class="calendar-box">
-				<img src="http://localhost:3000/assets/images/calender_icon.png" />
+				<img src="/assets/images/calender_icon.png" />
 				<span class="calendar-txt">
 					<li class="">
 						<a href="#">
@@ -41,7 +41,7 @@
 				</span>
 			</div>
 			<div class="calendar-box">
-				<img src="http://localhost:3000/assets/images/view_new-training_s.png" />
+				<img src="/assets/images/view_new-training_s.png" />
 				<span class="calendar-txt">
 					<li class="">
 						<a href="#"><span class="calendar-txt"> View New Trainings</span></a>
@@ -52,7 +52,7 @@
 	</div>
 
 	<div class="imagebanner-desktop">
-		<a href="#"><img src="http://localhost:3000/assets/images/dailydose_desktop.jpg" width="100%"></a>
+		<a href="#"><img src="/assets/images/dailydose_desktop.jpg" width="100%"></a>
 	</div>
 
 	<div id="grad1">
@@ -69,7 +69,7 @@
 				</div>
 			</div>
 			<div class="calendar-box">
-				<img src="http://localhost:3000/assets/images/ladder_icon.png" />
+				<img src="/assets/images/ladder_icon.png" />
 				<div class="course-learning-txt">
 					<li class="">
 						<a href="#/journey"
@@ -82,14 +82,14 @@
 		</div>
 		<div class="learningtools-resources">
 			<div class="calendar-box">
-				<img src="http://localhost:3000/assets/images/learning.png" />
+				<img src="/assets/images/learning.png" />
 				<li class="">
 					<a href="#"><span class="calendar-txt">Learning Tools</span></a>
 				</li>
 			</div>
 			<div class="calendar-box">
 				<a href="#"
-					><img src="http://localhost:3000/assets/images/lr_icon.png" /><span class="calendar-txt"
+					><img src="/assets/images/lr_icon.png" /><span class="calendar-txt"
 						>Learning Resources</span
 					></a
 				>
@@ -130,7 +130,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+									<img class="img" src="/assets/images/hero4.jpg" />
 								</div>
 							</div>
 						</div>
@@ -147,7 +147,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero1.jpg" />
+									<img class="img" src="/assets/images/hero1.jpg" />
 								</div>
 							</div>
 						</div>
@@ -164,7 +164,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero2.jpg" />
+									<img class="img" src="/assets/images/hero2.jpg" />
 								</div>
 							</div>
 						</div>
@@ -181,7 +181,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero3.jpg" />
+									<img class="img" src="/assets/images/hero3.jpg" />
 								</div>
 							</div>
 						</div>
@@ -198,7 +198,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+									<img class="img" src="/assets/images/hero4.jpg" />
 								</div>
 							</div>
 						</div>
@@ -215,7 +215,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero1.jpg" />
+									<img class="img" src="/assets/images/hero1.jpg" />
 								</div>
 							</div>
 						</div>
@@ -232,7 +232,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero2.jpg" />
+									<img class="img" src="/assets/images/hero2.jpg" />
 								</div>
 							</div>
 						</div>
@@ -249,7 +249,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero3.jpg" />
+									<img class="img" src="/assets/images/hero3.jpg" />
 								</div>
 							</div>
 						</div>
@@ -266,7 +266,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+									<img class="img" src="/assets/images/hero4.jpg" />
 								</div>
 							</div>
 						</div>
@@ -314,7 +314,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+									<img class="img" src="/assets/images/hero4.jpg" />
 								</div>
 							</div>
 						</div>
@@ -331,7 +331,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero1.jpg" />
+									<img class="img" src="/assets/images/hero1.jpg" />
 								</div>
 							</div>
 						</div>
@@ -348,7 +348,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero2.jpg" />
+									<img class="img" src="/assets/images/hero2.jpg" />
 								</div>
 							</div>
 						</div>
@@ -365,7 +365,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero3.jpg" />
+									<img class="img" src="/assets/images/hero3.jpg" />
 								</div>
 							</div>
 						</div>
@@ -382,7 +382,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+									<img class="img" src="/assets/images/hero4.jpg" />
 								</div>
 							</div>
 						</div>
@@ -399,7 +399,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero1.jpg" />
+									<img class="img" src="/assets/images/hero1.jpg" />
 								</div>
 							</div>
 						</div>
@@ -416,7 +416,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero2.jpg" />
+									<img class="img" src="/assets/images/hero2.jpg" />
 								</div>
 							</div>
 						</div>
@@ -433,7 +433,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero3.jpg" />
+									<img class="img" src="/assets/images/hero3.jpg" />
 								</div>
 							</div>
 						</div>
@@ -450,7 +450,7 @@
 									tabindex="-1"
 									style="width: 100%; display: inline-block"
 								>
-									<img class="img" src="http://localhost:3000/assets/images/hero4.jpg" />
+									<img class="img" src="/assets/images/hero4.jpg" />
 								</div>
 							</div>
 						</div>
