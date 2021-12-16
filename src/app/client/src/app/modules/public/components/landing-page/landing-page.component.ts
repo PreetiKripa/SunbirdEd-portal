@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LayoutService} from '@sunbird/shared';
+import { LayoutService } from '@sunbird/shared';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 
-
-// import { ElectronService } from './../../services';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -13,12 +11,10 @@ export class LandingPageComponent implements OnInit {
 
   layoutConfiguration;
   fieldTextType: boolean;
-  hrefPath = '/resources';
 
   @ViewChild('mycarousel', {static : true}) carousel: NgbCarousel;
 
-
-  constructor(public layoutService: LayoutService ) { }
+  constructor(public layoutService: LayoutService) { }
 
   ngOnInit() {
     this.layoutConfiguration = this.layoutService.initlayoutConfig();
@@ -51,7 +47,4 @@ export class LandingPageComponent implements OnInit {
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
   }
-  // doLogin() {
-  //   this.electronService.get({ url: this.config.urlConFig.URLS.OFFLINE.LOGIN }).subscribe();
-  // }
 }
