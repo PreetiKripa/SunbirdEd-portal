@@ -24,6 +24,8 @@ export class ContentTypeComponent implements OnInit, OnDestroy {
   subscription: any;
   userType: any;
   returnTo: string;
+	route: boolean;
+
   constructor(
     public formService: FormService,
     public resourceService: ResourceService,
@@ -41,6 +43,7 @@ export class ContentTypeComponent implements OnInit, OnDestroy {
         this.makeFormChange();
       }
     });
+		this.route = router.url.split('&').pop() === 'selectedTab=home';
   }
 
 

@@ -2,7 +2,7 @@
   [textToDisplay]="pageTitleSrc" [svgToDisplay]="svgToDisplay" [layoutConfiguration]="layoutConfiguration">
 </app-landing-section>
 
-<div class="main-page"  *ngIf="router.url.split('&').pop() === 'selectedTab=home'" >
+<div class="main-page" *ngIf="this.route" >
 	<div id="grad1">
 		<div id="scorebox-mobile">
 			<img src="/assets/images/star.png" />

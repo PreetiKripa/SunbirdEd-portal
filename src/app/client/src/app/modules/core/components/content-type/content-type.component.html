@@ -53,6 +53,6 @@
   </div>
 </ng-container>
 
-<div style="background: black; display: flex; justify-content: space-between; width: 98.9vw; overflow: hidden; padding: 5px 20px;" *ngIf="router.url.split('&').pop() !== 'selectedTab=home'">
+<div style="background: black; display: flex; justify-content: space-between; width: 98.9vw; overflow: hidden; padding: 5px 20px;" *ngIf="this.route" >
 	<img class="img" src="/assets/images/arrow-back.png" [routerLink]="['/resources']"/>
 </div>

@@ -86,6 +86,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
     targetedCategorytheme:any;
     showTargetedCategory:boolean=false;
     selectedTab:any;
+		route: boolean;
     get slideConfig() {
         return cloneDeep(this.configService.appConfig.LibraryCourses.slideConfig);
     }
@@ -119,6 +120,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                 this.userType = result;
             }
         });
+				this.route = router.url.split('&').pop() === 'selectedTab=home';
         }
 
 
