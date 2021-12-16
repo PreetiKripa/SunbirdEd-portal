@@ -715,7 +715,10 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
   }
 
   doLogin() {
-    this.electronService.get({ url: this.config.urlConFig.URLS.OFFLINE.LOGIN }).subscribe();
+    this.electronService.get(
+      { url: this.config.urlConFig.URLS.OFFLINE.LOGIN
+    }
+      ).subscribe();
   }
 
   initializeManagedUser(selectedUser) {
