@@ -217,7 +217,7 @@
           <div
             class="sb-g-col-xs-12 sb-g-col-md-4 sb-g-col-lg-5 sb-g-col-xxxl-8 sbt-header-tool-bar flex-jc-center relative hide-header" >
             <div class="sbt-search-bar-panel" *ngIf="userService?.loggedIn">
-              <app-search [layoutConfiguration]="layoutConfiguration" class="sbt-search-box large">
+              <app-search [layoutConfiguration]="layoutConfiguration" class="sbt-search-box">
               </app-search>
             </div>
             <div class="search-box-dropdown-list">
@@ -274,7 +274,7 @@
               <!-- language dropdown -->
             
               <app-language-dropdown [layoutConfiguration]="layoutConfiguration" [languageRange]='languages'
-                *ngIf="userService?.loggedIn && languages && showLanguageDropdown() ">
+                *ngIf="false">
               </app-language-dropdown>
            
               <!-- Notification dropdown -->
