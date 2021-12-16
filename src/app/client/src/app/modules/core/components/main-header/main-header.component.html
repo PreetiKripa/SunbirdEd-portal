@@ -175,7 +175,7 @@
     <div class="">
 		<!-- <div class="sbt-container"> -->
       <!--Header section-->
-      <header style="background: black;" *ngIf="userService?.loggedIn">
+      <header style="background: black;">
         <div class="sbt-header-bar sb-g">
           <div class="sb-g-col-xs-12 sb-g-col-md-1 sb-g-col-lg-1 sb-g-col-xxxl-1 sbt-header-logo">
             <div class="d-flex flex-ai-center flex-jc-space-between w-100">
@@ -214,9 +214,10 @@
             </div>
 
           </div>
-          <div class="sb-g-col-xs-12 sb-g-col-md-4 sb-g-col-lg-5 sb-g-col-xxxl-8 sbt-header-tool-bar flex-jc-center relative">
-            <div class="sbt-search-bar-panel">
-              <app-search [layoutConfiguration]="layoutConfiguration" class="sbt-search-box">
+          <div
+            class="sb-g-col-xs-12 sb-g-col-md-4 sb-g-col-lg-5 sb-g-col-xxxl-8 sbt-header-tool-bar flex-jc-center relative hide-header" >
+            <div class="sbt-search-bar-panel" *ngIf="userService?.loggedIn">
+              <app-search [layoutConfiguration]="layoutConfiguration" class="sbt-search-box large">
               </app-search>
             </div>
             <div class="search-box-dropdown-list">
@@ -271,27 +272,28 @@
                 </sui-select-option>
               </sui-select>
               <!-- language dropdown -->
+            
               <app-language-dropdown [layoutConfiguration]="layoutConfiguration" [languageRange]='languages'
-                *ngIf="false">
-                <!-- *ngIf="languages && showLanguageDropdown()"> -->
+                *ngIf="userService?.loggedIn && languages && showLanguageDropdown() ">
               </app-language-dropdown>
+           
               <!-- Notification dropdown -->
               <a class="profile-avtar p-0 ml-16">
                 <app-in-app-notification *ngIf="userService?.loggedIn" [layoutConfiguration]="layoutConfiguration">
                 </app-in-app-notification>
-								<span style="color: white;">Notifications</span>
+								<span style="color: white;" *ngIf="userService?.loggedIn">Notifications</span>
               </a>
-              <a class="profile-avtar p-0 ml-16">
+              <a class="profile-avtar p-0 ml-16" *ngIf="userService?.loggedIn">
 								<i class="fa fa-bookmark-o" aria-hidden="true" style="zoom: 2; color: white; padding-left: 10px;"></i>
 								<span style="display: inline-block; padding-left: 5px; color: white;">Bookmarks</span>
               </a>
-              <a class="profile-avtar p-0 ml-16" style="margin-right: 10px;">
+              <a class="profile-avtar p-0 ml-16" style="margin-right: 10px;" *ngIf="userService?.loggedIn">
 								<i class="fa fa-question" aria-hidden="true" style="zoom: 2; color: white; border: 2px solid white; border-radius: 50%; padding: 1px 5px;"></i>
 								<span style="display: inline-block; padding-left: 5px; color: white;">Help</span>
               </a>
               <!--Avtar Dropdown-->
 							<div class="d-flex">
-								<span style="color: white; text-align: end; font-weight: bold;">
+								<span style="color: white; text-align: end; font-weight: bold;" *ngIf="userService?.loggedIn" >
 									Welcome Khushboo <br />
 									Student
 								</span>
@@ -318,12 +320,12 @@
           </div>
         </div>
       </header>
-      <nav title="menu-bar">
+      <nav title="menu-bar" *ngIf="userService?.loggedIn">
         <div class="sbt-header-menu-bar">
           <!--  sb-g <div class="sb-g-col-xs-12 sb-g-col-md-3 sb-g-col-lg-3 sb-g-col-xxxl-4"></div>
           <div class="sb-g-col-xs-12 sb-g-col-md-9 sb-g-col-lg-9  sb-g-col-xxxl-12 sbt-header-menu-extension"></div> -->
           <div class="sbt-header-menu">
-            <app-main-menu [layoutConfiguration]="layoutConfiguration" [showBackButton]="showBackButton">
+            <app-main-menu [layoutConfiguration]="layoutConfiguration" [showBackButton]="showBackButton" >
             </app-main-menu>
           </div>
           <div class="ui container d-flex flex-ai-center" *ngIf="showBackButton">
@@ -342,8 +344,8 @@
         </div>
       </nav>
     </div>
+    </div>
   </div>
-</div>
 
 <div class="overlay-sidebar" *ngIf="showSideMenu">
   <div class="overlay-sidebar__menu" tabindex="0" role="dialog" id="overlaySidebarID" aria-labelledby="dialog1_label" aria-modal="true" aria-label="open sidebar navigation">

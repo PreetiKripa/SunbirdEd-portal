@@ -84,7 +84,7 @@
                   <div class="chapter-box">
                     <div *ngIf="item;else noContent">
                       <div
-                        *ngIf="item?.mimeType !== 'application/vnd.ekstep.content-collection' && !item?.children?.length">
+                        *ngIf="item?.mimeType !== 'application/vnd.ekstep.content-collection' && !item?.children?.length" >
                         <div class="child-content-padding">
                           <sb-toc-card [content]="item" (tocCardClick)="navigateToContent($event, item, 'toc-card')"
                             [type]="cardType" [contentStatus]="contentStatus" [maxAttempts]="item?.maxAttempts"

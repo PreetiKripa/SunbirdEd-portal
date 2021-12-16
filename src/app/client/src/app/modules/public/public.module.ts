@@ -6,12 +6,19 @@ import { PublicPlayerService, LandingpageGuard, PendingchangesGuard } from './se
 import { SharedModule } from '@sunbird/shared';
 import { PublicRoutingModule } from './public-routing.module';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+
 @NgModule({
   imports: [
     CommonModule,
     CoreModule,
     SharedModule,
-    PublicRoutingModule
+    NgbModule,
+    PublicRoutingModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   declarations: [LandingPageComponent],
   providers: [PublicPlayerService, DeviceDetectorService, LandingpageGuard, PendingchangesGuard]
