@@ -71,22 +71,21 @@
         </div>
       </div>
     </div>
-    <app-modal-wrapper #frameWorkPopUp *ngIf="showFrameWorkPopUp" [config]="{disableClose: true}">
+		<app-modal-wrapper #frameWorkPopUp *ngIf="showFrameWorkPopUp" [config]="{disableClose: true}">
       <ng-template sbModalContent let-data>
         <app-popup [dialogProps]="data" [buttonLabel]="resourceService?.frmelmnts?.btn?.submit"
           [isGuestUser]="isGuestUser" (submit)="updateFrameWork($event)"></app-popup>
       </ng-template>
     </app-modal-wrapper>
-    <app-tnc-popup (close)="onAcceptTnc()" #termsAndCondPopUp *ngIf="showTermsAndCondPopUp">
-    </app-tnc-popup>
+    <app-tnc-popup (close)="onAcceptTnc()" #termsAndCondPopUp *ngIf="showTermsAndCondPopUp"></app-tnc-popup>
     <div *ngIf="showGlobalConsentPopUpSection">
       <app-global-consent-pii [type]="globalConsent" [isglobalConsent]="isglobalConsent" (close)="closeConsentPopUp()"
         [consentConfig]="consentConfig"></app-global-consent-pii>
     </div>
     <app-validate-teacher-identifier-popup *ngIf="showUserVerificationPopup && labels" [labels]="labels"
       [userFeedData]="userFeed"> </app-validate-teacher-identifier-popup>
-    <app-user-onboarding (close)="onLocationSubmit()" *ngIf="showUserTypePopup || !isLocationConfirmed"
-      [isCustodianOrgUser]="isCustodianOrgUser" [deviceProfile]="deviceProfile"></app-user-onboarding>
+    <!-- <app-user-onboarding (close)="onLocationSubmit()" *ngIf="showUserTypePopup || !isLocationConfirmed"
+      [isCustodianOrgUser]="isCustodianOrgUser" [deviceProfile]="deviceProfile"></app-user-onboarding> -->
 
   <app-modal-wrapper [config]="{disableClose: true, size: 'small'}"
     *ngIf="isCustodianOrgUser && usersProfile && !usersProfile?.managedBy && !usersProfile?.dob && (usersProfile?.userLocations?.length>0 || showYearOfBirthPopup)">
@@ -94,10 +93,10 @@
       <app-year-of-birth [dialogProps]="data"></app-year-of-birth>
     </ng-template>
   </app-modal-wrapper>
-   
+
     <app-header  *ngIf="!hideHeaderNFooter" [layoutConfiguration]="layoutConfiguration" [routerEvents]="routeData$"
       [ngClass]="{'header-block': isFullScreenView}"></app-header>
- 
+
     <app-install-app (viewInBrowser)="viewInBrowser($event)" *ngIf="showAppPopUp && userService.loggedIn">
     </app-install-app>
     <!--<app-breadcrumbs *ngIf="userService.loggedIn"></app-breadcrumbs>-->

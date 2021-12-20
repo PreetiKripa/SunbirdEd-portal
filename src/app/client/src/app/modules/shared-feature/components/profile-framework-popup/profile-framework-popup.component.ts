@@ -86,7 +86,7 @@ export class ProfileFrameworkPopupComponent implements OnInit, OnDestroy {
         this.toasterService.warning(this.resourceService.messages.emsg.m0012);
         this.navigateToLibrary();
       });
-  
+
     this.setInteractEventData();
   }
   private getFormOptionsForCustodianOrgForGuestUser() {
@@ -293,7 +293,7 @@ export class ProfileFrameworkPopupComponent implements OnInit, OnDestroy {
       });
     }
     if (this.dialogRef && this.dialogRef.close) {
-      this.dialogRef.close();
+			this.dialogRef.close();
     }
     this.submit.emit(selectedOption);
   }

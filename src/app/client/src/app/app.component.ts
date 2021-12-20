@@ -272,7 +272,9 @@ export class AppComponent implements OnInit, OnDestroy {
             this.checkForCustodianUser();
             return this.setUserDetails();
           } else {
-            this.isGuestUser = true;
+            this.isGuestUser = false;
+						localStorage.setItem('userType', 'teacher');
+						localStorage.setItem('guestUserType', 'Teacher');
             this.userService.getGuestUser().subscribe((response) => {
               this.guestUserDetails = response;
             }, error => {
@@ -405,8 +407,8 @@ export class AppComponent implements OnInit, OnDestroy {
           // if (_.get(orgDetailsFromSlug, 'slug') !== this.tenantService.slugForIgot) {
 
             let userType;
-            if (this.isDesktopApp && this.isGuestUser) {
-               userType = _.get(this.guestUserDetails, 'role') ? this.guestUserDetails.role : undefined;
+							if (this.isDesktopApp && this.isGuestUser) {
+							userType = _.get(this.guestUserDetails, 'role') ? this.guestUserDetails.role : undefined;
             } else {
               userType = localStorage.getItem('userType');
             }
