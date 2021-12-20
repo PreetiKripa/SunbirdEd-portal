@@ -924,7 +924,8 @@ html[layout='joy'] {
     width: 100%;
     height: 100%;
     margin-bottom: calculateRem(16px);
-    border-radius: var(--sbt-bradius-24);
+    // border-radius: var(--sbt-bradius-24);
+    border-radius: 8px;
 
     .toc-child-item,
     .child-content-padding {

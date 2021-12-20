@@ -48,7 +48,7 @@
         <h5 class="textbook__title sb-color-primary font-weight-bold mb-0" tabindex="0">{{courseHierarchy?.name}}
         </h5>
         <!-- Textbook Rating with share icon -->
-        <div class="textbook__rating d-flex flex-ai-center">
+        <div class="textbook__rating d-flex flex-ai-center" *ngIf="false">
 
           <sui-rating *ngIf="courseStatus !== 'Unlisted'" class="star mini" [isReadonly]="true"
             [ngModel]="courseHierarchy.me_averageRating || 0" [maximum]="5"></sui-rating>
@@ -79,7 +79,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-w-wrap flex-ai-center textbook pt-8 pb-16 cc-player">
+    <div class="d-flex flex-w-wrap flex-ai-center textbook pt-8 pb-16 cc-player" *ngIf="false">
       <div class="d-flex flex-dc flex-basis-1 mr-32">
         <!-- Info displaying if course is flagged -->
         <h6 class="ui small negative message" *ngIf="courseHierarchy.status === 'Flagged'">

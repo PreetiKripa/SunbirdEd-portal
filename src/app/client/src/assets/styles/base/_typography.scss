@@ -179,7 +179,7 @@ a {
   text-overflow: ellipsis;
   word-break: break-word;
   &--two {
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 4 !important;
   }
   &--three {
     -webkit-line-clamp: 3;

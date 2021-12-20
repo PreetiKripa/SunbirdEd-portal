@@ -238,6 +238,7 @@ export class HomeSearchComponent implements OnInit, OnDestroy, AfterViewInit {
             return section;
         });
         this.contentList = sections;
+        console.log('this.contentList', this.contentList);
         this.addHoverData();
           const channelFacet = _.find(_.get(data, 'result.facets') || [], facet => _.get(facet, 'name') === 'channel');
           if (channelFacet) {
@@ -309,6 +310,7 @@ export class HomeSearchComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public playContent({ data }) {
     const metaData = data;
+    console.log(data);
     this.changeDetectorRef.detectChanges();
     const { onGoingBatchCount, expiredBatchCount, openBatch, inviteOnlyBatch } =
     this.coursesService.findEnrolledCourses(metaData.identifier);

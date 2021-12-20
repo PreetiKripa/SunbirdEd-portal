@@ -158,6 +158,7 @@ export class CoursePlayerComponent implements OnInit, OnDestroy {
     this.courseConsumptionService.updateContentConsumedStatus
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((data) => {
+        console.log('course-hierarcy', data);
         this.courseHierarchy = _.cloneDeep(data.courseHierarchy);
         this.batchId = data.batchId;
         this.courseId = data.courseId;
@@ -508,6 +509,7 @@ export class CoursePlayerComponent implements OnInit, OnDestroy {
         const parsedChildren = this.courseConsumptionService.parseChildren(collectionUnit);
         const collectionChildren = [];
         this.contentStatus.forEach(item => {
+          console.log('item', item);
           if (parsedChildren.find(content => content === item.contentId)) {
             collectionChildren.push(item);
           }
