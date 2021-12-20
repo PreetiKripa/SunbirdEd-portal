@@ -85,7 +85,7 @@
 							]
 						},
 						"scripts": [
-							"node_modules/apexcharts/dist/apexcharts.min.js",
+						   "node_modules/apexcharts/dist/apexcharts.min.js",
 							"node_modules/epubjs/dist/epub.js",
 							"src/assets/libs/iziToast/iziToast.min.js",
 							"node_modules/jquery/dist/jquery.min.js",

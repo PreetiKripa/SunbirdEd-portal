@@ -21,11 +21,29 @@
 			</div>
 		</div>
 		<div class="main-blackbox">
-			<!-- <div class="black-box">
-				<div id="chart1"></div>
+			 <div class="black-box">
+				<!-- <div id="chart1"></div> -->
+				<apx-chart
+				[series]="chartOptions.series"
+				[chart]="chartOptions.chart"
+				[labels]="chartOptions.labels"
+				[responsive]="chartOptions.responsive"
+				[fill]="chartOptions.fill"
+				[plotOptions]="chartOptions.plotOptions"
+				[dataLabels]="chartOptions.dataLabels"
+			  ></apx-chart>
 			</div>
-			<div class="black-box">
-				<div id="chart2"></div> -->
+		<div class="black-box">
+				<!-- <div id="chart2"></div> -->
+				<apx-chart
+				[series]="chartOptions.series"
+				[chart]="chartOptions.chart"
+				[labels]="chartOptions.labels"
+				[responsive]="chartOptions.responsive"
+				[fill]="chartOptions.fill"
+				[plotOptions]="chartOptions.plotOptions"
+				[dataLabels]="chartOptions.dataLabels"
+			  ></apx-chart>
 		</div>
 		<div class="calendar-bellicon">
 			<div class="calendar-box">

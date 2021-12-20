@@ -17,6 +17,7 @@ import { SlickModule } from 'ngx-slick';
 import { ExplorePageComponent } from './components';
 import { ContentSectionModule } from 'content-section';
 import {ObservationModule} from '../observation/observation.module';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [ExplorePageComponent],
@@ -24,6 +25,7 @@ import {ObservationModule} from '../observation/observation.module';
     ExplorePageRoutingModule,
     CommonModule,
     TelemetryModule,
+    NgApexchartsModule,
     CoreModule,
     SharedModule,
     NgInviewModule,
