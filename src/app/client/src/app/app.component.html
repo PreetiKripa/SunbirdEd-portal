@@ -94,10 +94,10 @@
       <app-year-of-birth [dialogProps]="data"></app-year-of-birth>
     </ng-template>
   </app-modal-wrapper>
-   
+
     <app-header  *ngIf="!hideHeaderNFooter" [layoutConfiguration]="layoutConfiguration" [routerEvents]="routeData$"
       [ngClass]="{'header-block': isFullScreenView}"></app-header>
- 
+
     <app-install-app (viewInBrowser)="viewInBrowser($event)" *ngIf="showAppPopUp && userService.loggedIn">
     </app-install-app>
     <!--<app-breadcrumbs *ngIf="userService.loggedIn"></app-breadcrumbs>-->

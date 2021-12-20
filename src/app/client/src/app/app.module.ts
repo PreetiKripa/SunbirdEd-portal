@@ -24,6 +24,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateStore } from '@ngx-translate/core';
 import { SbSearchFilterModule } from 'common-form-elements-web-v9';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -51,9 +52,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedFeatureModule,
     ...PluginModules,
      // ngx-translate and the loader module
-     HttpClientModule,
-    AppRoutingModule,
-    NgbModule // don't add any module below this because it contains wildcard route
+		HttpClientModule,
+		NgbModule,
+		NgApexchartsModule,
+    AppRoutingModule // don't add any module below this because it contains wildcard route
   ],
   entryComponents: [AppComponent],
   bootstrap: [AppComponent],

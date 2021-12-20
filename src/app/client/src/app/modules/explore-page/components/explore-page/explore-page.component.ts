@@ -112,15 +112,14 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
         private utilService: UtilService, private offlineCardService: OfflineCardService,
         public contentManagerService: ContentManagerService, private cacheService: CacheService,
         private browserCacheTtlService: BrowserCacheTtlService, private profileService: ProfileService,
-        private segmentationTagService: SegmentationTagService,private observationUtil: ObservationUtilService) {
-            this.instance = (<HTMLInputElement>document.getElementById('instance'))
-            ? (<HTMLInputElement>document.getElementById('instance')).value.toUpperCase() : 'SUNBIRD';
-        this.subscription = this.utilService.currentRole.subscribe(async (result) => {
-            if (result) {
-                this.userType = result;
-            }
-        });
-				this.route = router.url.split('&').pop() === 'selectedTab=home';
+        private segmentationTagService: SegmentationTagService,private observationUtil: ObservationUtilService,) {
+					this.instance = (<HTMLInputElement>document.getElementById('instance'))
+					? (<HTMLInputElement>document.getElementById('instance')).value.toUpperCase() : 'SUNBIRD';
+					this.subscription = this.utilService.currentRole.subscribe(async (result) => {
+							if (result) {
+									this.userType = result;
+							}
+					});
         }
 
 

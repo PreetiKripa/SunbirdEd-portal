@@ -2,16 +2,8 @@
   [textToDisplay]="pageTitleSrc" [svgToDisplay]="svgToDisplay" [layoutConfiguration]="layoutConfiguration">
 </app-landing-section>
 
-<div class="main-page" *ngIf="this.route" >
+<div class="main-page" *ngIf="getSelectedTab() === 'home'" >
 	<div id="grad1">
-		<div id="scorebox-mobile">
-			<img src="/assets/images/star.png" />
-			<div class="score-details">
-				<p class="score-txt">YOUR TOTAL SCORE</p>
-				<p class="points">10 Points </p>
-			</div>
-			<img src="/assets/images/star.png" />
-		</div>
 		<div id="scorebox-desktop">
 			<div class="starimage1">
 				<img src="/assets/images/star.png" /><img
@@ -28,7 +20,13 @@
 				/>
 			</div>
 		</div>
-		<div class="main-blackbox"></div>
+		<div class="main-blackbox">
+			<!-- <div class="black-box">
+				<div id="chart1"></div>
+			</div>
+			<div class="black-box">
+				<div id="chart2"></div> -->
+		</div>
 		<div class="calendar-bellicon">
 			<div class="calendar-box">
 				<img src="/assets/images/calender_icon.png" />
@@ -659,7 +657,7 @@
 </div>
 
 <app-offline-banner *ngIf="!isUserLoggedIn()" [slug]="userService.slug"></app-offline-banner>
- <!-- Show Modal if content has any YouTube data-->
+<!-- Show Modal if content has any YouTube data-->
 <app-modal-wrapper *ngIf="showModal" [config]="{disableClose: false}" (dismiss)="showModal = !showModal">
   <ng-template sbModalContent let-data>
     <div class="sb-modal">

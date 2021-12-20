@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { combineLatest, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TelemetryService } from '@sunbird/telemetry';
+import { cloneDeep, get, find, map as _map, pick, omit, groupBy, sortBy, replace, uniqBy, forEach, has, uniq, flatten, each, isNumber, toString, partition, toLower, includes } from 'lodash-es';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class ContentTypeComponent implements OnInit, OnDestroy {
   subscription: any;
   userType: any;
   returnTo: string;
-	route: boolean;
+	selectedTab:any;
 
   constructor(
     public formService: FormService,
@@ -43,9 +44,10 @@ export class ContentTypeComponent implements OnInit, OnDestroy {
         this.makeFormChange();
       }
     });
-		this.route = router.url.split('&').pop() === 'selectedTab=home';
   }
-
+	getSelectedTab () {
+		return get(this.activatedRoute, 'snapshot.queryParams.selectedTab');
+	}
 
   ngOnInit() {
     this.getContentTypes();
@@ -103,6 +105,13 @@ export class ContentTypeComponent implements OnInit, OnDestroy {
           { queryParams: { ...params, selectedTab: data.anonumousUserRoute.queryParam } }) : window.location.href = data.loggedInUserRoute.route;
     }
   }
+
+	navBackToHome () {
+		if (this.userService.loggedIn) {
+      this.router.navigate(["/resources"],
+        { queryParams: { selectedTab: `home` } });
+    }
+	}
 
   setSelectedContentType(url, queryParams, pathParams) {
     if (url.indexOf('play') >= 0) {
