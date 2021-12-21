@@ -17,20 +17,22 @@ import { SlickModule } from 'ngx-slick';
 import { ExplorePageComponent } from './components';
 import { ContentSectionModule } from 'content-section';
 import {ObservationModule} from '../observation/observation.module';
- 
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 @NgModule({
   declarations: [ExplorePageComponent],
   imports: [
     ExplorePageRoutingModule,
     CommonModule,
     TelemetryModule,
+    NgApexchartsModule,
     CoreModule,
     SharedModule,
     NgInviewModule,
     SharedFeatureModule,
     SuiSelectModule, SuiModalModule, SuiAccordionModule, SuiPopupModule, SuiDropdownModule, SuiProgressModule,
     SuiRatingModule, SuiCollapseModule, SuiDimmerModule, WebExtensionModule,
-    CommonConsumptionModule, ContentSearchModule, SlickModule, ContentSectionModule,ObservationModule
+    CommonConsumptionModule, ContentSearchModule, SlickModule, ContentSectionModule,ObservationModule,
   ]
 })
 export class ExplorePageModule { }

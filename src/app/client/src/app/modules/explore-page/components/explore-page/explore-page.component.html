@@ -2,16 +2,8 @@
   [textToDisplay]="pageTitleSrc" [svgToDisplay]="svgToDisplay" [layoutConfiguration]="layoutConfiguration">
 </app-landing-section>
 
-<div class="main-page" *ngIf="this.route" >
+<div class="main-page" *ngIf="getSelectedTab() === 'home'" >
 	<div id="grad1">
-		<div id="scorebox-mobile">
-			<img src="/assets/images/star.png" />
-			<div class="score-details">
-				<p class="score-txt">YOUR TOTAL SCORE</p>
-				<p class="points">10 Points </p>
-			</div>
-			<img src="/assets/images/star.png" />
-		</div>
 		<div id="scorebox-desktop">
 			<div class="starimage1">
 				<img src="/assets/images/star.png" /><img
@@ -28,7 +20,36 @@
 				/>
 			</div>
 		</div>
-		<div class="main-blackbox"></div>
+
+		<div class="main-blackbox">
+			<div class="black-box">
+				<div id="chart1">
+					<apx-chart
+						[series]="chartOptions.series"
+						[chart]="chartOptions.chart"
+						[labels]="chartOptions.labels"
+						[responsive]="chartOptions.responsive"
+						[fill]="chartOptions.fill"
+						[plotOptions]="chartOptions.plotOptions"
+						[dataLabels]="chartOptions.dataLabels" >
+					</apx-chart>
+				</div>
+			</div>
+			<div class="black-box">
+				<div id="chart2">
+					<apx-chart
+						[series]="chartOptions.series"
+						[chart]="chartOptions.chart"
+						[labels]="chartOptions.labels"
+						[responsive]="chartOptions.responsive"
+						[fill]="chartOptions.fill"
+						[plotOptions]="chartOptions.plotOptions"
+						[dataLabels]="chartOptions.dataLabels" >
+					</apx-chart>
+				</div>
+			</div>
+		</div>
+
 		<div class="calendar-bellicon">
 			<div class="calendar-box">
 				<img src="/assets/images/calender_icon.png" />
@@ -98,384 +119,36 @@
 	</div>
 
 	<div class="bata_superhero">
-		<div>
-			<div class="slick-slider slickDesktop slick-initialized" dir="ltr">
-				<button
-					type="button"
-					data-role="none"
-					class="slick-arrow slick-prev"
-					style="display: block"
-				>
-					Previous
-				</button>
-				<div class="slick-list">
-					<div
-						class="slick-track"
-						style="
-							width: 11331px;
-							opacity: 1;
-							transform: translate3d(-1259px, 0px, 0px);
-						"
-					>
-						<div
-							data-index="-1"
-							tabindex="-1"
-							class="slick-slide slick-cloned"
-							aria-hidden="true"
-							style="width: 1259px"
-						>
-							<div>
-								<div
-									class="heroDesktop"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero4.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="0"
-							class="slick-slide slick-active slick-current"
-							tabindex="-1"
-							aria-hidden="false"
-							style="outline: none; width: 1259px"
-						>
-							<div>
-								<div
-									class="heroDesktop"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero1.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="1"
-							class="slick-slide"
-							tabindex="-1"
-							aria-hidden="true"
-							style="outline: none; width: 1259px"
-						>
-							<div>
-								<div
-									class="heroDesktop"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero2.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="2"
-							class="slick-slide"
-							tabindex="-1"
-							aria-hidden="true"
-							style="outline: none; width: 1259px"
-						>
-							<div>
-								<div
-									class="heroDesktop"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero3.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="3"
-							class="slick-slide"
-							tabindex="-1"
-							aria-hidden="true"
-							style="outline: none; width: 1259px"
-						>
-							<div>
-								<div
-									class="heroDesktop"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero4.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="4"
-							tabindex="-1"
-							class="slick-slide slick-cloned"
-							aria-hidden="true"
-							style="width: 1259px"
-						>
-							<div>
-								<div
-									class="heroDesktop"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero1.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="5"
-							tabindex="-1"
-							class="slick-slide slick-cloned"
-							aria-hidden="true"
-							style="width: 1259px"
-						>
-							<div>
-								<div
-									class="heroDesktop"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero2.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="6"
-							tabindex="-1"
-							class="slick-slide slick-cloned"
-							aria-hidden="true"
-							style="width: 1259px"
-						>
-							<div>
-								<div
-									class="heroDesktop"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero3.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="7"
-							tabindex="-1"
-							class="slick-slide slick-cloned"
-							aria-hidden="true"
-							style="width: 1259px"
-						>
-							<div>
-								<div
-									class="heroDesktop"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero4.jpg" />
-								</div>
-							</div>
-						</div>
-					</div>
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class="d-block" src="/assets/images/image3.jpeg" alt="First slide">
 				</div>
-				<button
-					type="button"
-					data-role="none"
-					class="slick-arrow slick-next"
-					style="display: block"
-				>
-					Next
-				</button>
-				<ul class="slick-dots" style="display: block">
-					<li class="slick-active"><button>1</button></li>
-					<li class=""><button>2</button></li>
-					<li class=""><button>3</button></li>
-					<li class=""><button>4</button></li>
-				</ul>
-			</div>
-			<div class="slick-slider slickMobile slick-initialized" dir="ltr">
-				<button
-					type="button"
-					data-role="none"
-					class="slick-arrow slick-prev"
-					style="display: block"
-				>
-					Previous
-				</button>
-				<div class="slick-list">
-					<div
-						class="slick-track"
-						style="opacity: 1; transform: translate3d(0px, 0px, 0px)"
-					>
-						<div
-							data-index="-1"
-							tabindex="-1"
-							class="slick-slide slick-cloned"
-							aria-hidden="true"
-							style="width: 0px"
-						>
-							<div>
-								<div
-									class="heroMobileview"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero4.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="0"
-							class="slick-slide slick-active slick-current"
-							tabindex="-1"
-							aria-hidden="false"
-							style="outline: none; width: 0px"
-						>
-							<div>
-								<div
-									class="heroMobileview"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero1.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="1"
-							class="slick-slide"
-							tabindex="-1"
-							aria-hidden="true"
-							style="outline: none; width: 0px"
-						>
-							<div>
-								<div
-									class="heroMobileview"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero2.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="2"
-							class="slick-slide"
-							tabindex="-1"
-							aria-hidden="true"
-							style="outline: none; width: 0px"
-						>
-							<div>
-								<div
-									class="heroMobileview"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero3.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="3"
-							class="slick-slide"
-							tabindex="-1"
-							aria-hidden="true"
-							style="outline: none; width: 0px"
-						>
-							<div>
-								<div
-									class="heroMobileview"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero4.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="4"
-							tabindex="-1"
-							class="slick-slide slick-cloned"
-							aria-hidden="true"
-							style="width: 0px"
-						>
-							<div>
-								<div
-									class="heroMobileview"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero1.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="5"
-							tabindex="-1"
-							class="slick-slide slick-cloned"
-							aria-hidden="true"
-							style="width: 0px"
-						>
-							<div>
-								<div
-									class="heroMobileview"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero2.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="6"
-							tabindex="-1"
-							class="slick-slide slick-cloned"
-							aria-hidden="true"
-							style="width: 0px"
-						>
-							<div>
-								<div
-									class="heroMobileview"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero3.jpg" />
-								</div>
-							</div>
-						</div>
-						<div
-							data-index="7"
-							tabindex="-1"
-							class="slick-slide slick-cloned"
-							aria-hidden="true"
-							style="width: 0px"
-						>
-							<div>
-								<div
-									class="heroMobileview"
-									tabindex="-1"
-									style="width: 100%; display: inline-block"
-								>
-									<img class="img" src="/assets/images/hero4.jpg" />
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="carousel-item">
+					<img class="d-block" src="/assets/images/image2.jpeg" alt="Second slide">
 				</div>
-				<button
-					type="button"
-					data-role="none"
-					class="slick-arrow slick-next"
-					style="display: block"
-				>
-					Next
-				</button>
-				<ul class="slick-dots" style="display: block">
-					<li class="slick-active"><button>1</button></li>
-					<li class=""><button>2</button></li>
-					<li class=""><button>3</button></li>
-					<li class=""><button>4</button></li>
-				</ul>
+				<div class="carousel-item">
+					<img class="d-block" src="/assets/images/image-4.jpeg" alt="Third slide">
+				</div>
 			</div>
+			<a class="carousel-control-prev" href="" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
 		</div>
 	</div>
 </div>
 
-<div [ngClass]="[layoutConfiguration ? 'sbt-fluid-content-bg':'', (getSelectedTab() === 'home' || getSelectedTab() === 'explore') ? '': '']">
+<div [ngClass]="[layoutConfiguration ? 'sbt-fluid-content-bg':'', (getSelectedTab() === 'home' || getSelectedTab() === 'explore') ? '': '']" *ngIf="getSelectedTab() !== 'home'">
   <div class="sb-g" [ngClass]="layoutConfiguration ? 'sb-g sbt-container sbt-page-content' : 'sb-g'"
     [appTelemetryImpression]="telemetryImpression">
     <!-- Filter for web version -->
@@ -659,7 +332,7 @@
 </div>
 
 <app-offline-banner *ngIf="!isUserLoggedIn()" [slug]="userService.slug"></app-offline-banner>
- <!-- Show Modal if content has any YouTube data-->
+<!-- Show Modal if content has any YouTube data-->
 <app-modal-wrapper *ngIf="showModal" [config]="{disableClose: false}" (dismiss)="showModal = !showModal">
   <ng-template sbModalContent let-data>
     <div class="sb-modal">

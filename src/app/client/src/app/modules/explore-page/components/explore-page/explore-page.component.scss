@@ -253,6 +253,9 @@
   background-color: black;
   border-radius: 25px;
   height: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .black-box:last-child {
@@ -311,10 +314,10 @@
   flex-direction: row;
 }
 .starimage1 img {
-  padding-left: 15rem;
+  padding-left: 9rem;
 }
 .starimage2 img {
-  padding-right: 15rem;
+  padding-right: 9rem;
 }
 .starimage2 {
   display: flex;
@@ -944,3 +947,17 @@
 .profile_field .fieldVal {
   overflow-wrap: anywhere;
 }
+// .apexcharts-canvas {
+//   margin: 0 auto;
+// }
+
+// #apexchartsfc3noor2{
+//   font-size:12px;
+//   font-weight: bold;
+// }
+// .apexcharts-legend{
+//   height:100px !important;
+//   right:0px !important;
+//   top:120px !important;
+//   /* position: unset !important; */
+// }

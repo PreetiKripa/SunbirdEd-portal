@@ -4,7 +4,7 @@ import { PublicPlayerService } from '@sunbird/public';
 import { Component, OnInit, OnDestroy, HostListener, AfterViewInit, ViewChild } from '@angular/core';
 import {
     ResourceService, ToasterService, ConfigService, NavigationHelperService, LayoutService, COLUMN_TYPE, UtilService,
-    OfflineCardService, BrowserCacheTtlService,IUserData
+    OfflineCardService, BrowserCacheTtlService, IUserData
 } from '@sunbird/shared';
 import { Router, ActivatedRoute } from '@angular/router';
 import { cloneDeep, get, find, map as _map, pick, omit, groupBy, sortBy, replace, uniqBy, forEach, has, uniq, flatten, each, isNumber, toString, partition, toLower, includes } from 'lodash-es';
@@ -16,8 +16,26 @@ import * as _ from 'lodash-es';
 import { CacheService } from 'ng2-cache-service';
 import { ProfileService } from '@sunbird/profile';
 import { SegmentationTagService } from '../../../core/services/segmentation-tag/segmentation-tag.service';
-import {ObservationUtilService} from '../../../observation/service'
+import {ObservationUtilService} from '../../../observation/service';
+// import { Component, ViewChild } from "@angular/core";
+import { ChartComponent, ApexFill, ApexPlotOptions, ApexDataLabels } from 'ng-apexcharts';
 
+import {
+  ApexNonAxisChartSeries,
+  ApexResponsive,
+  ApexChart,
+} from 'ng-apexcharts';
+
+// tslint:disable-next-line:interface-over-type-literal
+export type ChartOptions = {
+    series: ApexNonAxisChartSeries;
+    chart: ApexChart;
+    responsive: ApexResponsive[];
+    labels: any;
+    fill: ApexFill;
+    plotOptions: ApexPlotOptions;
+    dataLabels: ApexDataLabels;
+  };
 @Component({
     selector: 'app-explore-page-component',
     templateUrl: './explore-page.component.html',
@@ -80,13 +98,16 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
     isFilterEnabled = true;
     defaultTab = 'Textbook';
     userProfile: any;
-    targetedCategory:any=[];
+    targetedCategory: any = [];
     subscription: any;
     userType: any;
-    targetedCategorytheme:any;
-    showTargetedCategory:boolean=false;
-    selectedTab:any;
-		route: boolean;
+    targetedCategorytheme: any;
+    showTargetedCategory = false;
+    selectedTab: any;
+        route: boolean;
+
+        @ViewChild('chart') chart: ChartComponent;
+        public chartOptions: Partial<ChartOptions>;
     get slideConfig() {
         return cloneDeep(this.configService.appConfig.LibraryCourses.slideConfig);
     }
@@ -112,17 +133,134 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
         private utilService: UtilService, private offlineCardService: OfflineCardService,
         public contentManagerService: ContentManagerService, private cacheService: CacheService,
         private browserCacheTtlService: BrowserCacheTtlService, private profileService: ProfileService,
-        private segmentationTagService: SegmentationTagService,private observationUtil: ObservationUtilService) {
-            this.instance = (<HTMLInputElement>document.getElementById('instance'))
-            ? (<HTMLInputElement>document.getElementById('instance')).value.toUpperCase() : 'SUNBIRD';
-        this.subscription = this.utilService.currentRole.subscribe(async (result) => {
-            if (result) {
-                this.userType = result;
-            }
-        });
-				this.route = router.url.split('&').pop() === 'selectedTab=home';
+        private segmentationTagService: SegmentationTagService, private observationUtil: ObservationUtilService, ) {
+          this.instance = (<HTMLInputElement>document.getElementById('instance'))
+          ? (<HTMLInputElement>document.getElementById('instance')).value.toUpperCase() : 'SUNBIRD';
+          this.subscription = this.utilService.currentRole.subscribe(async (result) => {
+              if (result) {
+                  this.userType = result;
+              }
+          });
+            this.chartOptions = {
+            	series: [50, 25, 25],
+              chart: {
+                width: 380,
+                type: 'donut',
+              },
+              labels: ['Not Started-2', 'Started-2', 'Completed-4'],
+            //   colors: ['rgba(50,220,230)', ' rgba(230, 0, 0)', 'rgba(253,196,0)'],
+              fill: {
+                colors: ['rgba(50,220,230)', ' rgba(230, 0, 0)', 'rgba(253,196,0)']
+              },
+              dataLabels: {
+                enabled: false
+              },
+              plotOptions: {
+                pie: {
+                  customScale: 0.9,
+                  donut: {
+                    size: '85%',
+                    background: 'white',
+                    labels: {
+                      show: true,
+                      name: {
+                        show: true,
+                        fontSize: '20px',
+                        fontFamily: 'Helvetica, Arial, sans-serif',
+                        fontWeight: 600,
+                        color: 'white',
+                        offsetY: 5,
+                        // tslint:disable-next-line:only-arrow-functions
+                        formatter: function (val) {
+                          return val;
+                        }
+                      },
+                      value: {
+                        show: true,
+                        fontSize: '16px',
+                        fontFamily: 'Helvetica, Arial, sans-serif',
+                        fontWeight: 'bold',
+                        color: 'white',
+                        offsetY: 16,
+                        // tslint:disable-next-line:only-arrow-functions
+                        formatter: function (val) {
+                          return val;
+                        }
+                      },
+                      total: {
+                        show: true,
+                        showAlways: false,
+                        label: 'Program Status',
+                        fontSize: '22px',
+                        fontFamily: 'Helvetica, Arial, sans-serif',
+                        fontWeight: 'bold',
+                        color: '#373d3f',
+                        formatter: () => ''
+                      }
+                    }
+                  },
+                }
+              },
+              responsive: [{
+                breakpoint: 768,
+                options: {
+                  chart: {
+                    width: 300,
+                    // offsetX: -10,
+                    // offsetY: 0,
+                  },
+                  plotOptions: {
+                    pie: {
+                      customScale: 0.9,
+                      donut: {
+                        size: '85%',
+                        background: 'white',
+                        labels: {
+                          show: true,
+                          name: {
+                            show: true,
+                            fontSize: '16px',
+                            fontFamily: 'Helvetica, Arial, sans-serif',
+                            fontWeight: 600,
+														color: 'white',
+                            offsetY: 5,
+                            // tslint:disable-next-line:only-arrow-functions
+                            formatter: function (val) {
+                              return val;
+                            }
+                          },
+                          value: {
+                            show: true,
+                            fontSize: '13px',
+                            fontFamily: 'Helvetica, Arial, sans-serif',
+                            fontWeight: 'bold',
+                            //     position: 'center',
+                            // horizontalAlign: 'center',
+														color: 'white',
+                            offsetY: 16,
+                            // tslint:disable-next-line:only-arrow-functions
+                            formatter: function (val) {
+                              return val;
+                            }
+                          },
+                          total: {
+                            show: true,
+                            showAlways: false,
+                            label: 'Course Status',
+                            fontSize: '13px',
+                            fontFamily: 'Helvetica, Arial, sans-serif',
+                            fontWeight: 'bold',
+                            color: '#373d3f',
+                            formatter: () => ''
+                          }
+                        }
+                      },
+                    }
+                  },
+                },
+              }],
+            };
         }
-
 
     private initConfiguration() {
         this.defaultFilters = this.userService.defaultFrameworkFilters;
@@ -199,9 +337,9 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
     ngOnInit() {
         this.isDesktopApp = this.utilService.isDesktopApp;
         this.setUserPreferences();
-        this.subscription$=this.activatedRoute.queryParams.subscribe(queryParams => {
-        this.selectedTab=queryParams.selectedTab;
-        this.showTargetedCategory=false;
+        this.subscription$ = this.activatedRoute.queryParams.subscribe(queryParams => {
+        this.selectedTab = queryParams.selectedTab;
+        this.showTargetedCategory = false;
         this.getFormConfigs();
         });
         this.initConfiguration();
@@ -340,10 +478,10 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
         /* istanbul ignore if */
         if (this.cacheService.exists('searchFilters')) {
             const _searchFilters = this.cacheService.get('searchFilters');
-            let _cacheFilters = {
+            const _cacheFilters = {
                 gradeLevel: [..._.intersection(filters['gradeLevel'], _searchFilters['gradeLevel']), ..._.difference(filters['gradeLevel'], _searchFilters['gradeLevel'])],
                 subject: [..._.intersection(filters['subject'], _searchFilters['subject']),
-                    ..._.difference(filters['subject'], _searchFilters['subject'])].map((e) => { return _.startCase(e) }),
+                    ..._.difference(filters['subject'], _searchFilters['subject'])].map((e) => _.startCase(e)),
                 medium: [..._.intersection(filters['medium'], _searchFilters['medium']), ..._.difference(filters['medium'], _searchFilters['medium'])],
                 publisher: [..._.intersection(filters['publisher'], _searchFilters['publisher']), ..._.difference(filters['publisher'], _searchFilters['publisher'])],
                 audience: [..._.intersection(filters['audience'], _searchFilters['audience']), ..._.difference(filters['audience'], _searchFilters['audience'])],
@@ -352,7 +490,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                     ..._.difference(filters['audienceSearchFilterValue'], _searchFilters['audienceSearchFilterValue'])],
                 board: filters['board'],
                 selectedTab: this.getSelectedTab()
-            }
+            };
             filters = _cacheFilters;
         }
         const currentPageData = this.getCurrentPageData();
@@ -480,7 +618,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                                             const _facetArray = [];
                                             forEach(facets[facet.facetKey], _facet => {
                                                 if (facet.filter) {
-                                                    for (let key in facet.filter) {
+                                                    for (const key in facet.filter) {
                                                        if (facet.filter[key].includes(_facet['name'])) {
                                                         _facetArray.push({
                                                             name: _facet['name'] === 'tv lesson' ? 'tv classes' : _facet['name'],
@@ -507,7 +645,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                                                 name: facet.facetKey,
                                                 data: _.sortBy(_facetArray, ['name']),
                                                 section: facet,
-                                                isEnabled:facet.isEnabled,
+                                                isEnabled: facet.isEnabled,
                                                 index: facet.index
                                             });
                                         }
@@ -575,21 +713,20 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
             this.observationUtil.browseByCategoryForm()
                 .then((data: any) => {
                     let currentBoard;
-                    if(this.userPreference && this.userPreference['framework'] && this.userPreference['framework']['id']){
-                        currentBoard = Array.isArray(this.userPreference?.framework?.id) ? (this.userPreference?.framework?.id[0]) : (this.userPreference?.framework?.id)
+                    if (this.userPreference && this.userPreference['framework'] && this.userPreference['framework']['id']) {
+                        currentBoard = Array.isArray(this.userPreference?.framework?.id) ? (this.userPreference?.framework?.id[0]) : (this.userPreference?.framework?.id);
                     }
-                    let currentUserType=this.userType.toLowerCase();
+                    const currentUserType = this.userType.toLowerCase();
                     if (data && data[currentBoard] &&
                         data[currentBoard][currentUserType]) {
-                        this.showTargetedCategory = true
+                        this.showTargetedCategory = true;
                         this.targetedCategory = data[currentBoard][currentUserType];
                         this.targetedCategorytheme = {
-                            "iconBgColor": "rgba(255,255,255,1)",
-                            "pillBgColor": "rgba(255,255,255,1)"
-                        }
-                    }
-                    else {
-                        this.showTargetedCategory = false
+                            'iconBgColor': 'rgba(255,255,255,1)',
+                            'pillBgColor': 'rgba(255,255,255,1)'
+                        };
+                    } else {
+                        this.showTargetedCategory = false;
                     }
                 });
              }
@@ -897,10 +1034,10 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                 return this.playerService.playContent(metaData);
             }
             if (sectionType) {
-                metaData.batchId = _.get(metaData,'metaData.batchId');
-                metaData.trackable={
-                    enabled:'Yes'
-                }
+                metaData.batchId = _.get(metaData, 'metaData.batchId');
+                metaData.trackable = {
+                    enabled: 'Yes'
+                };
                 return this.playerService.playContent(metaData);
               }
 
@@ -1074,18 +1211,17 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
         }
     }
 
-    handleTargetedpillSelected(event){
+    handleTargetedpillSelected(event) {
         if (!event || !event.data || !event.data.length) {
             return;
         }
-        let pillData = event.data[0].value;
-        if(this.isUserLoggedIn()) {
-            if(pillData.name === 'observation'){
+        const pillData = event.data[0].value;
+        if (this.isUserLoggedIn()) {
+            if (pillData.name === 'observation') {
                 this.router.navigate(['observation']);
             }
-        }
-        else{
-            window.location.href ='/resources';
+        } else {
+            window.location.href = '/resources';
         }
     }
 
@@ -1251,8 +1387,8 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                     board: this.isUserLoggedIn() ? _.get(this.userService.defaultFrameworkFilters, 'board') : _.get(_filter, 'board'),
                     gradeLevel: _.get(_filter, 'gradeLevel'),
                     medium: _.get(_filter, 'medium'),
-                    subject: _.get(_filter, 'subject').map((e) => { return _.startCase(e) })
-                }
+                    subject: _.get(_filter, 'subject').map((e) => _.startCase(e))
+                };
             }
         }
     }

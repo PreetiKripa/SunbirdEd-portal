@@ -53,6 +53,12 @@
   </div>
 </ng-container>
 
-<div style="background: black; display: flex; justify-content: space-between; width: 98.9vw; overflow: hidden; padding: 5px 20px;" *ngIf="this.route" >
-	<img class="img" src="/assets/images/arrow-back.png" [routerLink]="['/resources']"/>
+<div *ngIf="this.userService.loggedIn">
+	<div style="background: black; display: flex; justify-content: flex-start; width: 98.9vw; overflow: hidden; padding: 8px 20px;" *ngIf="getSelectedTab() !== 'home'">
+		<!-- <a href="/resources?selectedTab=home" style="text-decoration: none;">
+			<img class="img" src="/assets/images/arrow-back.png" style="cursor: pointer;"/>
+		</a> -->
+		<img class="img" src="/assets/images/arrow-back.png" (click)="navBackToHome()" style="cursor: pointer;"/>
+		<p style="color: #fff; text; margin-left: 10px;">{{getSelectedTab() | uppercase}}</p>
+	</div>
 </div>
