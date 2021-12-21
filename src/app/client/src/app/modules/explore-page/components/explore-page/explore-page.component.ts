@@ -142,7 +142,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
               }
           });
             this.chartOptions = {
-             series: [50, 25, 25],
+            	series: [50, 25, 25],
               chart: {
                 width: 380,
                 type: 'donut',
@@ -168,7 +168,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                         fontSize: '20px',
                         fontFamily: 'Helvetica, Arial, sans-serif',
                         fontWeight: 600,
-                        color: undefined,
+                        color: 'white',
                         offsetY: 5,
                         // tslint:disable-next-line:only-arrow-functions
                         formatter: function (val) {
@@ -180,7 +180,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                         fontSize: '16px',
                         fontFamily: 'Helvetica, Arial, sans-serif',
                         fontWeight: 'bold',
-                        color: undefined,
+                        color: 'white',
                         offsetY: 16,
                         // tslint:disable-next-line:only-arrow-functions
                         formatter: function (val) {
@@ -222,7 +222,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                             fontSize: '16px',
                             fontFamily: 'Helvetica, Arial, sans-serif',
                             fontWeight: 600,
-                            color: undefined,
+														color: 'white',
                             offsetY: 5,
                             // tslint:disable-next-line:only-arrow-functions
                             formatter: function (val) {
@@ -235,8 +235,8 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                             fontFamily: 'Helvetica, Arial, sans-serif',
                             fontWeight: 'bold',
                             //     position: 'center',
-                            // horizontalAlign: 'center', 
-                            color: undefined,
+                            // horizontalAlign: 'center',
+														color: 'white',
                             offsetY: 16,
                             // tslint:disable-next-line:only-arrow-functions
                             formatter: function (val) {
@@ -246,7 +246,7 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
                           total: {
                             show: true,
                             showAlways: false,
-                            label: 'Program Status',
+                            label: 'Course Status',
                             fontSize: '13px',
                             fontFamily: 'Helvetica, Arial, sans-serif',
                             fontWeight: 'bold',
@@ -1393,4 +1393,3 @@ export class ExplorePageComponent implements OnInit, OnDestroy, AfterViewInit {
         }
     }
 }
-
