@@ -5,7 +5,8 @@
         <ngb-carousel #mycarousel *ngIf="event_list" [showNavigationArrows]="false" class="carousel-inner"
         [showNavigationIndicators]="false" interval="1000">
           <ng-template ngbSlide *ngFor="let event of event_list" class="item">
-            <img [src]="event.img" alt="Random slide">
+            <img [src]="event.img" alt="Random slide" style="width: 100%;
+            height: 100%;">
           </ng-template>
         </ngb-carousel>
       </div>

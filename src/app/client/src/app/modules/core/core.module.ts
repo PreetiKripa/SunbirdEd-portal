@@ -24,6 +24,7 @@ import { LocationModule } from '../../plugins/location/location.module';
 import { NotificationModule } from '../notification/notification.module';
 import { TelemetryErrorModalComponent } from '../shared';
 import {ObservationUtilService} from '../observation/service'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   imports: [
     CommonModule,
@@ -38,7 +39,8 @@ import {ObservationUtilService} from '../observation/service'
     AvatarModule,
     CommonConsumptionModule,
     LocationModule,
-    NotificationModule
+    NotificationModule,
+    NgbModule
   ],
   declarations: [MainHeaderComponent, MainFooterComponent, MainMenuComponent, SearchComponent, PermissionDirective,
     BodyScrollDirective, OnlineOnlyDirective,
