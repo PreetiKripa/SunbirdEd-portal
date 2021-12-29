@@ -2,17 +2,21 @@
 @import "mixins/mixins";
 @import "../main-header/main-header.component.scss";
 
+.custome-font {
+  font-family: Helvetica, Arial, sans-serif !important;
+}
 :host ::ng-deep {
   .sb-linkmenu {
     .item {
       html[dir="rtl"] & {
-      margin-left: calculateRem(12px);
-      margin-right: inherit;
+        margin-left: calculateRem(12px);
+        margin-right: inherit;
       }
     }
+  }
 }
-}
-.item a.item.active, .item a.item:hover {
+.item a.item.active,
+.item a.item:hover {
   outline: none;
   color: var(--sb-linkmenu-active-text) !important;
 }
@@ -27,25 +31,25 @@
   .item {
     background: var(--sb-linkmenu-bg);
     // padding: calculateRem(8px) calculateRem(16px);
-		padding: 0.2rem 1rem;
+    padding: 0.2rem 1rem;
     // border-radius: calculateRem(6px);
     // box-shadow: var(--sbt-box-shadow-6px);
     // font-size: calculateRem(12px);
     font-weight: bold;
     margin-right: calculateRem(12px);
     // height: calculateRem(48px);
-    transition: all ease .3s;
+    transition: all ease 0.3s;
     display: flex;
     align-items: center;
     cursor: pointer;
     white-space: nowrap;
     color: black;
-    @include respond-above(md){
+    @include respond-above(md) {
       flex: 0 0 10%;
     }
     &.active,
     &:hover {
-      border-bottom: 5px solid #E60000;
+      border-bottom: 5px solid #e60000;
       // color: var(--sb-linkmenu-text-hover);
       text-decoration: none;
       // background-color: var(--sb-linkmenu-bg-hover);
@@ -53,7 +57,7 @@
         background-color: var(--sb-linkmenu-icon-bg-hover);
       }
     }
-/*
+    /*
     &--textbooks {
       color: var(--sbt-textbooks-text);
       &:hover,
@@ -204,11 +208,11 @@
     -webkit-mask-image: url(/assets/images/mask-image/all.svg);
     mask-image: url(/assets/images/mask-image/all.svg);
   }
-  &__myDownloads   {
+  &__myDownloads {
     -webkit-mask-image: url(/assets/images/mask-image/download.svg);
     mask-image: url(/assets/images/mask-image/download.svg);
   }
-  &__home   {
+  &__home {
     -webkit-mask-image: url(/assets/images/mask-image/home.svg);
     mask-image: url(/assets/images/mask-image/home.svg);
   }
@@ -217,7 +221,7 @@
     mask-image: url(/assets/images/mask-image/explore.svg);
   }
 }
-html[layout=joy] .help-page .help-page__header {
+html[layout="joy"] .help-page .help-page__header {
   border-radius: 1.5rem 1.5rem 0 0 !important;
   width: 100%;
   background: var(--sbt-page-header-bg) !important;
