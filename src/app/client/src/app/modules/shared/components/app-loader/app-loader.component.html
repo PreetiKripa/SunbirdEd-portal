@@ -3,21 +3,50 @@
     <i class="notched circle loading icon"></i>
     <div class="content">
       <div class="header">
-        {{headerMessage}}
+        {{ headerMessage }}
       </div>
-      <p>{{loaderMessage}}</p>
+      <p>{{ loaderMessage }}</p>
+      <p>wait.....</p>
     </div>
   </div>
 </ng-container>
 <ng-container *ngIf="layoutConfiguration">
   <!--New Layout-->
-  <div class="ui icon message mt-30 sbt-app-loader-container">
+  <!--<div class="ui icon message mt-30 sbt-app-loader-container">
     <i class="notched circle loading icon"></i>
     <div class="content text-left">
-      <div class="header">
-        {{headerMessage}}
+       <div class="header">
+        {{ headerMessage }}
       </div>
-      <p>{{loaderMessage}}</p>
+      <p>{{ loaderMessage }}</p>
+      <p>loding...</p> 
+    </div>
+  </div>-->
+  <div class="container-fluid">
+    <div
+      class="panel-group panel-b"
+      id="menu_course"
+      role="tablist"
+      aria-multiselectable="true"
+    >
+      <div class="panel panel-red">
+        <div class="panel-body">
+          <div class="loader" style="margin: 0px auto"></div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="panel-group panel-b"
+      id="menu_resource"
+      role="tablist"
+      aria-multiselectable="true"
+      style="display: none"
+    >
+      <div class="panel panel-red">
+        <div class="panel-body">
+          <div class="loader" style="margin: 0px auto"></div>
+        </div>
+      </div>
     </div>
   </div>
 </ng-container>

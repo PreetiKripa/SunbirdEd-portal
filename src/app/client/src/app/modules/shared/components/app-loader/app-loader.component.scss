@@ -1,7 +1,78 @@
 .sbt-app-loader-container {
-    background:var(--sbt-compt-bg);
-    width:94% !important;
-    margin:0 auto;
-    border-radius: 1.5rem;
-    border:0px;
+  background: var(--sbt-compt-bg);
+  width: 94% !important;
+  margin: 0 auto;
+  border-radius: 1.5rem;
+  border: 0px;
+}
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #81181d;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 2s linear infinite;
+}
+.panel-red .panel-body {
+  padding: 0px;
+}
+.panel-red .panel-body {
+  border: none !important;
+}
+.panel-body {
+  padding: 15px;
+}
+.panel-group .panel.panel-red {
+  box-shadow: none;
+}
+.panel-group .panel {
+  margin-bottom: 0;
+  border-radius: 4px;
+}
+.panel-group .panel {
+  box-shadow: 4px 5px 2px #424240;
+  width: 96%;
+  margin-left: 2%;
+  margin-bottom: 10px;
+}
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+}
+.panel {
+  border: none;
+}
+#menu_exam,
+#menu_survey,
+#menu_fac21,
+#accordion,
+#menu_course,
+#menu_resource,
+.main-content,
+.helpVedio {
+  min-height: calc(100vh - 250px);
+}
+.panel-group.panel-b {
+  margin-top: 10px;
+}
+.panel-group {
+  margin-bottom: 20px;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -1,6 +1,5 @@
 ::ng-deep {
-
-  html[data-theme='Default'] {
+  html[data-theme="Default"] {
     // Material Modals(Dialog)
     --mat-modal-title-bg: var(--primary-color);
     --mat-modal-title-txt: var(--sb-modal-header-text);
@@ -8,7 +7,7 @@
     --mat-modal-content-txt: var(--gray-800);
   }
 
-  html[data-theme='Darkmode'] {
+  html[data-theme="Darkmode"] {
     // Material Modals(Dialog)
     --mat-modal-title-bg: var(--sbt-compt-bg);
     --mat-modal-title-txt: var(--white);
@@ -16,7 +15,7 @@
     --mat-modal-content-txt: var(--white);
   }
 
-  html[layout='joy'] {
+  html[layout="joy"] {
     // Material Modals(Dialog)
     --mat-modal-title-bg: var(--sbt-compt-bg);
     --mat-modal-title-txt: var(--sb-modal-header-text);
@@ -104,7 +103,7 @@
         border-top: 0.5px solid var(--gray-100);
         justify-content: flex-end;
 
-        html[layout='joy'] & {
+        html[layout="joy"] & {
           border: none;
         }
       }
@@ -120,7 +119,7 @@
 
         &::after {
           color: var(--white);
-          content: '\2715';
+          content: "\2715";
           position: absolute;
           top: 50%;
           left: 50%;
