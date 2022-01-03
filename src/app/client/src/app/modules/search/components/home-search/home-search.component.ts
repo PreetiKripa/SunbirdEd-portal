@@ -60,6 +60,7 @@ export class HomeSearchComponent implements OnInit, OnDestroy, AfterViewInit {
   contentName: string;
   showModal = false;
   showBackButton = false;
+	showContentTypes: string;
 
   constructor(public searchService: SearchService, public router: Router,
     public activatedRoute: ActivatedRoute, public paginationService: PaginationService,
@@ -70,14 +71,14 @@ export class HomeSearchComponent implements OnInit, OnDestroy, AfterViewInit {
     public navigationhelperService: NavigationHelperService, public layoutService: LayoutService, private schemaService: SchemaService,
     public contentManagerService: ContentManagerService, public telemetryService: TelemetryService,
     private offlineCardService: OfflineCardService) {
-    this.paginationDetails = this.paginationService.getPager(0, 1, this.configService.appConfig.SEARCH.PAGE_LIMIT);
-    this.filterType = this.configService.appConfig.home.filterType;
-    // this.redirectUrl = this.configService.appConfig.courses.searchPageredirectUrl;
-    this.sortingOptions = this.configService.dropDownConfig.FILTER.RESOURCES.sortingOptions;
-    this.setTelemetryData();
+			this.paginationDetails = this.paginationService.getPager(0, 1, this.configService.appConfig.SEARCH.PAGE_LIMIT);
+			this.filterType = this.configService.appConfig.home.filterType;
+			// this.redirectUrl = this.configService.appConfig.courses.searchPageredirectUrl;
+			this.sortingOptions = this.configService.dropDownConfig.FILTER.RESOURCES.sortingOptions;
+			this.setTelemetryData();
   }
   ngOnInit() {
-    /* istanbul ignore next */
+		/* istanbul ignore next */
     // if (this.cacheService.exists('searchFiltersAll')) {
     //   this.selectedFilters = this.cacheService.get('searchFiltersAll');
     // }
@@ -113,6 +114,18 @@ export class HomeSearchComponent implements OnInit, OnDestroy, AfterViewInit {
         this.checkForBack();
         this.moveToTop();
   }
+
+	storeShowContentTypes() {
+		if ( localStorage.getItem('showContentTypes') && localStorage.getItem('showContentTypes') !== 'Learning Resource' ) {
+			console.log('if')
+			this.showContentTypes = localStorage.getItem('showContentTypes');
+		} else {
+			console.log('else')
+			localStorage.setItem('showContentTypes', 'Course');
+			this.showContentTypes = localStorage.getItem('showContentTypes');
+		}
+	}
+
   checkForBack() {
     if (_.get(this.activatedRoute, 'snapshot.queryParams["showClose"]') === 'true') {
       this.showBackButton = true;
@@ -238,7 +251,8 @@ export class HomeSearchComponent implements OnInit, OnDestroy, AfterViewInit {
             return section;
         });
         this.contentList = sections;
-        console.log('this.contentList', this.contentList);
+				this.showContentTypes = localStorage.getItem('showContentTypes');
+				console.log(this.showContentTypes);
         this.addHoverData();
           const channelFacet = _.find(_.get(data, 'result.facets') || [], facet => _.get(facet, 'name') === 'channel');
           if (channelFacet) {
@@ -613,4 +627,3 @@ getInteractEdata(event) {
 }
 
 }
-
