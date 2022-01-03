@@ -17,6 +17,7 @@ import { cloneDeep, get, find, map as _map, pick, omit, groupBy, sortBy, replace
 export class ContentTypeComponent implements OnInit, OnDestroy {
   @Output() closeSideMenu = new EventEmitter<any>();
   @Input() layoutConfiguration;
+  searchTabType;
   @Input() showBackButton = false;
   contentTypes;
   selectedContentType;
@@ -168,6 +169,12 @@ export class ContentTypeComponent implements OnInit, OnDestroy {
 
   processFormData(formData) {
     this.contentTypes = _.sortBy(formData, 'index');
+		const res = this.contentTypes.filter( ( res ) => {
+			if(res.contentType !== "textbook" && res.contentType !== "tvProgram" && res.contentType !== "all") {
+				return { ...res }
+			}
+		});
+		this.contentTypes = res;
     const defaultTab = _.find(this.contentTypes, ['default', true]);
     this.selectedContentType = this.activatedRoute.snapshot.queryParams.selectedTab || _.get(defaultTab, 'contentType') || 'textbook';
   }
@@ -196,4 +203,15 @@ export class ContentTypeComponent implements OnInit, OnDestroy {
   isLayoutAvailable() {
     return this.layoutService.isLayoutAvailable(this.layoutConfiguration);
   }
+
+	showContentTypes ( type: string ) {
+		localStorage.setItem('showContentTypes', type);
+		this.searchTabType = localStorage.getItem('showContentTypes');
+
+		const urls = this.router.url.split('?')[0],
+					searchKeys = this.router.url.split('?')[1].split('&')[0].split('=')[1],
+					searchTabs = this.router.url.split('?')[1].split('&')[1].split('=')[1];
+
+		this.router.navigate ( [ urls ], { queryParams: { key: searchKeys, selectedTab: searchTabs, courseType: this.searchTabType === 'Learning Resource' ? 'resource' : 'course' } } );
+	}
 }

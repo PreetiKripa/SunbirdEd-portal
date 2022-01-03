@@ -41,24 +41,25 @@
 				[ngClass]="{'active': selectedContentType === contentType.contentType}"
 				class="item {{'item--' + getIcon(contentType)}}" style="text-align: center; display: inline-block;">
         <!-- <span [ngClass]="'sb-icon sb-icon--sm mr-8 sb-icon__'+ getIcon(contentType)"></span> -->
-        {{getTitle(contentType)}}
+        {{getTitle(contentType) | uppercase}}
       </a>
       <a aria-current="page" [attr.aria-selected]="selectedContentType === contentType.contentType ? true : false" *ngIf="contentType.isEnabled && !contentType?.isOnlineOnly && isDesktopApp" tabindex="0" (keyup.enter)="showContentType(contentType)" (click)="showContentType(contentType)"
         [ngClass]="{'active': selectedContentType === contentType.contentType}"
         class="item {{'item--' + getIcon(contentType)}}" style="text-align: center; display: inline-block;">
         <!-- <span [ngClass]="'sb-icon sb-icon--sm mr-8 sb-icon__'+ getIcon(contentType)"></span> -->
-        {{getTitle(contentType)}}
+        {{getTitle(contentType) | uppercase}}
       </a>
     </ng-container>
   </div>
 </ng-container>
 
-<div *ngIf="this.userService.loggedIn">
-	<div style="background: black; display: flex; justify-content: flex-start; width: 98.9vw; overflow: hidden; padding: 8px 20px;" *ngIf="getSelectedTab() !== 'home'">
-		<!-- <a href="/resources?selectedTab=home" style="text-decoration: none;">
-			<img class="img" src="/assets/images/arrow-back.png" style="cursor: pointer;"/>
-		</a> -->
+<div style="background: black; display: flex; justify-content: space-between; width: 98.9vw; overflow: hidden; padding: 8px 20px; align-items: center;" *ngIf="getSelectedTab() !== 'home' && this.userService.loggedIn">
+	<div style="float: left;">
 		<img class="img" src="/assets/images/arrow-back.png" (click)="navBackToHome()" style="cursor: pointer;"/>
-		<p style="color: #fff; text; margin-left: 10px;">{{getSelectedTab() | uppercase}}</p>
+		<p style="color: #fff; margin-left: 10px; display: inline-block;">{{ ( getSelectedTab() === 'all' ? 'dashboard' : getSelectedTab() ) | uppercase}}</p>
+	</div>
+	<div *ngIf="getSelectedTab() === 'all'" style="display: flex; align-items: center; column-gap: 50px;">
+		<p style="color: #fff; background: #E60000" (click)="showContentTypes ( 'Course' )">COURSES</p>
+		<p style="color: #fff; background: #E60000" (click)="showContentTypes ( 'Learning Resource' )">RESOURCES</p>
 	</div>
 </div>
